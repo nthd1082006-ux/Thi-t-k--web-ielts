@@ -1,0 +1,385 @@
+/* lotrinh.css - Styles for Roadmap Detail Pages */
+
+/* Hero Section */
+.lotrinh-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.lotrinh-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../img/roadmap-bg.jpg') center/cover;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.lotrinh-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  margin-bottom: 40px;
+}
+
+.course-meta {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.meta-item {
+  text-align: center;
+}
+
+.meta-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #ffd700;
+}
+
+.meta-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.meta-label {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Roadmap Timeline */
+.roadmap-timeline {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.roadmap-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #667eea, #764ba2);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.roadmap-item {
+  display: flex;
+  margin: 80px 0;
+  position: relative;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.roadmap-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.roadmap-content {
+  width: 45%;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.roadmap-icon {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  box-shadow: 0 15px 40px rgba(102,126,234,0.4);
+}
+
+.roadmap-content h4 {
+  font-size: 1.8rem;
+  color: #2c5aa0;
+  margin-bottom: 20px;
+}
+
+.roadmap-content p {
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Accordion Modules */
+.modules-section {
+  padding: 100px 0;
+  background: #f8fafc;
+}
+
+.accordion {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.accordion-item {
+  background: white;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.accordion-header {
+  padding: 25px 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #2c5aa0;
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: #f0f4ff;
+}
+
+.accordion-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.accordion-body.active {
+  max-height: 500px; /* Adjust as needed */
+}
+
+.accordion-content {
+  padding: 30px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Pricing */
+.pricing-section {
+  padding: 100px 0;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.price-card {
+  background: white;
+  border-radius: 25px;
+  padding: 50px 40px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.price-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 35px 80px rgba(0,0,0,0.15);
+}
+
+.price-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffd700;
+  color: #2c5aa0;
+  padding: 8px 25px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.price-highlight {
+  border: 3px solid #667eea;
+}
+
+.price-amount {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #2c5aa0;
+  margin: 20px 0;
+}
+
+.price-features {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+}
+
+.price-features li {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+.cta-register {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  color: white;
+  border: none;
+  padding: 18px 50px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+}
+
+.cta-register:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255,107,107,0.4);
+}
+
+/* Reviews */
+.reviews-section {
+  padding: 100px 0;
+  background: #f8fafc;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+}
+
+.review-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.stars {
+  color: #ffd700;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .roadmap-item {
+    flex-direction: column !important;
+  }
+  
+  .roadmap-content {
+    width: 100%;
+    margin-top: 60px;
+  }
+  
+  .roadmap-icon {
+    top: -60px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .course-meta {
+    gap: 20px;
+  }
+}
+
+/* Back Button */
+.back-btn {
+  position: fixed;
+  top: 120px;
+  left: 30px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  border: none;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #2c5aa0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.back-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  color: #667eea;
+}
+
+@media (max-width: 768px) {
+  .back-btn {
+    top: 90px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS GLOBAL - Review bài test</title>
+    <link rel="stylesheet" href="/css/test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <div class="test-page">
+        <div class="test-card">
+            <div class="test-header">
+                <span class="test-badge">REVIEW</span>
+                <h1>Kết quả chi tiết bài làm</h1>
+                <p>Xem lại từng câu trả lời trước khi chuyển sang phần đánh giá band điểm.</p>
+            </div>
+
+            <div id="reviewList" class="review-list"></div>
+
+            <div class="test-actions">
+                <a href="result.html" class="primary-btn">
+                    <i class="fa-solid fa-chart-column"></i> Xem đánh giá band điểm
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const reviewList = document.getElementById("reviewList");
+        const answers = JSON.parse(sessionStorage.getItem("placementAnswers") || "[]");
+
+        if (answers.length === 0) {
+            window.location.href = "test.html";
+        } else {
+            reviewList.innerHTML = answers.map((item, index) => `
+                <div class="review-item ${item.isCorrect ? "correct-answer" : "wrong-answer"}">
+                    <h3>${index + 1}. ${item.question}</h3>
+                    <p><strong>Bạn chọn:</strong> ${item.selectedAnswer}</p>
+                    <p><strong>Đáp án đúng:</strong> ${item.correctAnswer}</p>
+                    <span class="status-badge">${item.isCorrect ? "Đúng" : "Sai"}</span>
+                </div>
+            `).join("");
+        }
+    </script>
+</body>
+</html>

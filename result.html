@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS GLOBAL - Kết quả band điểm</title>
+    <link rel="stylesheet" href="/css/test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <div class="test-page">
+        <div class="test-card result-card">
+            <div class="test-header">
+                <span class="test-badge">RESULT</span>
+                <h1>Đánh giá band điểm đầu vào</h1>
+                <p>Dựa trên bài test vừa hoàn thành, hệ thống gợi ý mức band và lộ trình phù hợp cho bạn.</p>
+            </div>
+
+            <div class="result-summary">
+                <div class="score-box">
+                    <span class="score-label">Số câu đúng</span>
+                    <strong id="scoreValue">0/5</strong>
+                </div>
+                <div class="score-box highlight-box">
+                    <span class="score-label">Band ước tính</span>
+                    <strong id="bandValue">--</strong>
+                </div>
+            </div>
+
+            <div class="result-details">
+                <div class="result-item">
+                    <h3>Mức độ hiện tại</h3>
+                    <p id="levelValue"></p>
+                </div>
+                <div class="result-item">
+                    <h3>Gợi ý lộ trình</h3>
+                    <p id="adviceValue"></p>
+                </div>
+            </div>
+
+            <div class="result-buttons">
+                <a href="Home.html" class="back-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Quay lại
+                </a>
+                <button onclick="registerRecommendedCourse()" class="register-btn">
+                    <i class="fa-solid fa-arrow-right"></i> Đăng kí khóa học ngay
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/Home.js"></script>
+    <script>
+        const score = sessionStorage.getItem("placementScore");
+        const band = sessionStorage.getItem("placementBand");
+        const level = sessionStorage.getItem("placementLevel");
+        const advice = sessionStorage.getItem("placementAdvice");
+
+        if (!score || !band || !level || !advice) {
+            window.location.href = "test.html";
+        } else {
+            document.getElementById("scoreValue").textContent = `${score}/5`;
+            document.getElementById("bandValue").textContent = band;
+            document.getElementById("levelValue").textContent = level;
+            document.getElementById("adviceValue").textContent = advice;
+        }
+
+        // Hàm xác định loại khóa học dựa trên Band điểm
+    function getRecommendedCourse() {
+        // Lưu ý: band ở đây là chuỗi, ví dụ "3.0 - 4.0"
+        if (band.includes('3.0') || band.includes('4.0')) {
+            return 'foundation1';
+        } else if (band.includes('4.5') || band.includes('5.5')) {
+            return 'intensive1';
+        } else {
+            return 'master1'; // Dành cho 6.0 trở lên
+        }
+    }
+
+    function registerRecommendedCourse() {
+        const courseType = getRecommendedCourse();
+        
+        // Cách 1: Nếu bạn đã có hàm goToCourse(type) trong Home.js
+        if (typeof goToCourse === "function") {
+            goToCourse(courseType);
+        } 
+        // Cách 2: Nếu muốn chuyển trang trực tiếp đến phần khóa học trên trang chủ
+        else {
+            window.location.href = `Home.html#${courseType}`;
+        }
+    }
+    </script>
+</body>
+</html>
+
