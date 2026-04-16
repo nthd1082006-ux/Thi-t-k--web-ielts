@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch sử thanh toán | IELTS GLOBAL</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #1e293b; }
+
+        /* NAVBAR */
+        .navbar { background: #fff; box-shadow: 0 1px 0 #e2e8f0; padding: 0; position: sticky; top:0; z-index:100; }
+        .navbar .container { display:flex; align-items:center; gap:16px; padding:14px 24px; max-width:1280px; margin:0 auto; }
+        .logo { font-weight:900; font-size:1.3rem; color:#4f46e5; display:flex; align-items:center; gap:4px; }
+        .nav-links { display:flex; gap:20px; margin-left:auto; }
+        .nav-links a { text-decoration:none; color:#64748b; font-size:.9rem; font-weight:600; transition:.2s; padding:6px 0; border-bottom:2px solid transparent; }
+        .nav-links a:hover { color:#4f46e5; }
+        .nav-links a.active { color:#4f46e5; border-color:#4f46e5; }
+
+        /* HERO */
+        .page-hero {
+            background: linear-gradient(135deg,#1e293b 0%,#0f172a 100%);
+            padding: 48px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content:''; position:absolute; inset:0;
+            background: radial-gradient(ellipse at 60% 50%, rgba(79,70,229,.3) 0%, transparent 65%);
+        }
+        .page-hero h1 { color:#fff; font-size:2rem; font-weight:900; position:relative; margin-bottom:8px; }
+        .page-hero p  { color:rgba(255,255,255,.65); font-size:1rem; position:relative; }
+
+        /* MAIN */
+        .main { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+
+        /* STATS ROW */
+        .stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 28px; }
+        @media(max-width:600px){ .stats-row { grid-template-columns:1fr; } }
+        .stat-card {
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            padding: 20px 22px;
+            display:flex; align-items:center; gap: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,.04);
+        }
+        .stat-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+        .stat-icon.purple { background:#eef2ff; color:#4f46e5; }
+        .stat-icon.green  { background:#d1fae5; color:#059669; }
+        .stat-icon.blue   { background:#dbeafe; color:#2563eb; }
+        .stat-val { font-size:1.5rem; font-weight:900; color:#1e293b; }
+        .stat-label { font-size:.8rem; color:#64748b; margin-top:2px; }
+
+        /* TOOLBAR */
+        .toolbar {
+            display:flex; align-items:center; justify-content:space-between; gap:14px;
+            background:#fff; border-radius:16px; border:1px solid #e2e8f0;
+            padding:14px 20px; margin-bottom:20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,.04);
+            flex-wrap: wrap;
+        }
+        .toolbar-title { font-weight:800; font-size:1rem; color:#1e293b; display:flex; align-items:center; gap:8px; }
+        .toolbar-title i { color:#4f46e5; }
+        .toolbar-actions { display:flex; gap:10px; flex-wrap:wrap; }
+        .btn-sm {
+            padding:8px 16px; border-radius:10px; font-size:.82rem; font-weight:700;
+            cursor:pointer; border:none; transition:.2s; display:inline-flex; align-items:center; gap:6px;
+        }
+        .btn-sm.primary { background:#4f46e5; color:#fff; }
+        .btn-sm.primary:hover { background:#4338ca; }
+        .btn-sm.danger  { background:#fff; color:#ef4444; border:1px solid #fecaca; }
+        .btn-sm.danger:hover  { background:#fef2f2; }
+        .btn-sm.ghost   { background:#f8fafc; color:#64748b; border:1px solid #e2e8f0; }
+        .btn-sm.ghost:hover   { background:#e2e8f0; color:#1e293b; }
+
+        /* FILTER */
+        .filter-row { display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap; }
+        .filter-chip {
+            padding:6px 16px; border-radius:20px; font-size:.8rem; font-weight:600;
+            cursor:pointer; border:1.5px solid #e2e8f0; background:#fff; color:#64748b;
+            transition:.2s;
+        }
+        .filter-chip.active, .filter-chip:hover { border-color:#4f46e5; background:#eef2ff; color:#4f46e5; }
+
+        /* EMPTY STATE */
+        .empty-state {
+            background:#fff; border-radius:20px; border:1px dashed #d1d5db;
+            padding:60px 24px; text-align:center;
+        }
+        .empty-icon { font-size:3rem; margin-bottom:16px; }
+        .empty-state h3 { font-size:1.2rem; color:#374151; margin-bottom:8px; }
+        .empty-state p { color:#94a3b8; font-size:.9rem; margin-bottom:24px; }
+
+        /* HISTORY ITEMS */
+        .history-list { display:flex; flex-direction:column; gap:14px; }
+        .history-item {
+            background:#fff; border-radius:16px; border:1px solid #e2e8f0;
+            padding:20px 22px;
+            box-shadow: 0 2px 12px rgba(0,0,0,.04);
+            transition: box-shadow .2s;
+            animation: fadeUp .3s ease both;
+        }
+        .history-item:hover { box-shadow: 0 8px 32px rgba(0,0,0,.1); }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
+        .hi-top { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+        .hi-course { font-weight:800; font-size:1rem; color:#1e293b; margin-bottom:4px; }
+        .hi-meta { font-size:.82rem; color:#94a3b8; display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px; }
+        .hi-meta span { display:inline-flex; align-items:center; gap:5px; }
+        .status-badge {
+            padding:5px 14px; border-radius:20px; font-size:.78rem; font-weight:700;
+            white-space:nowrap; flex-shrink:0;
+        }
+        .status-ok   { background:#d1fae5; color:#065f46; }
+        .status-pend { background:#fef3c7; color:#92400e; }
+        .hi-bottom { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; padding-top:12px; border-top:1px solid #f1f5f9; }
+        .hi-amount { font-size:1.2rem; font-weight:900; color:#4f46e5; }
+        .hi-type-badge {
+            display:inline-flex; align-items:center; gap:5px;
+            padding:4px 12px; border-radius:12px; font-size:.78rem; font-weight:700;
+        }
+        .type-full    { background:#d1fae5; color:#065f46; }
+        .type-install { background:#dbeafe; color:#1d4ed8; }
+        .hi-actions { display:flex; gap:8px; }
+        .hi-action-btn {
+            padding:5px 12px; border-radius:8px; font-size:.78rem; font-weight:600;
+            cursor:pointer; border:1px solid #e2e8f0; background:#fff; color:#64748b;
+            transition:.15s;
+        }
+        .hi-action-btn:hover { border-color:#4f46e5; color:#4f46e5; background:#eef2ff; }
+        .hi-txn { font-size:.75rem; color:#d1d5db; font-family:monospace; }
+
+        /* PAGINATION not needed for this use case */
+
+        @media(max-width:600px){
+            .main { padding:20px 14px; }
+            .history-item { padding:16px; }
+        }
+    </style>
+    
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <img src="/images/logo.png" alt="logo">
+            <div class="logo"><p class="logo-text">IELTS</p> GLOBAL</div>
+        <div class="nav-links">
+            <a href="Danhsachkhoahoc.html">Quay lại</a>
+            <a href="payment_history.html" class="active">Lịch sử thanh toán</a>
+        </div>
+    </div>
+</nav>
+
+<div class="page-hero">
+    <h1><i class="fa-solid fa-receipt"></i> Lịch sử thanh toán</h1>
+    <p>Tất cả các giao dịch đăng ký khóa học của bạn</p>
+</div>
+
+<div class="main">
+
+    <!-- STATS -->
+    <div class="stats-row" id="statsRow" style="display:none">
+        <div class="stat-card">
+            <div class="stat-icon purple"><i class="fa-solid fa-receipt"></i></div>
+            <div>
+                <div class="stat-val" id="statCount">0</div>
+                <div class="stat-label">Giao dịch</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon green"><i class="fa-solid fa-circle-check"></i></div>
+            <div>
+                <div class="stat-val" id="statSuccess">0</div>
+                <div class="stat-label">Thành công</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon blue"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div>
+                <div class="stat-val" id="statCourses">0</div>
+                <div class="stat-label">Khóa đã đăng ký</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOOLBAR -->
+    <div class="toolbar" id="toolbar" style="display:none">
+        <div class="toolbar-title"><i class="fa-solid fa-list"></i> Danh sách giao dịch</div>
+        <div class="toolbar-actions">
+            <button class="btn-sm ghost" onclick="exportCSV()"><i class="fa-solid fa-download"></i> Xuất CSV</button>
+            <button class="btn-sm danger" onclick="clearAll()"><i class="fa-solid fa-trash"></i> Xóa tất cả</button>
+        </div>
+    </div>
+
+    <!-- FILTER -->
+    <div class="filter-row" id="filterRow" style="display:none">
+        <button class="filter-chip active" onclick="applyFilter('all',this)">Tất cả</button>
+        <button class="filter-chip" onclick="applyFilter('full',this)">Thanh toán 1 lần</button>
+        <button class="filter-chip" onclick="applyFilter('installment',this)">Trả góp</button>
+    </div>
+
+    <!-- EMPTY -->
+    <div class="empty-state" id="emptyState">
+        <div class="empty-icon">🧾</div>
+        <h3>Chưa có giao dịch nào</h3>
+        <p>Sau khi đăng ký khóa học và thanh toán, lịch sử sẽ hiển thị ở đây.</p>
+        <a href="Danhsachkhoahoc.html" style="display:inline-flex;align-items:center;gap:8px;background:#4f46e5;color:#fff;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:700;font-size:.95rem;">
+            <i class="fa-solid fa-graduation-cap"></i> Khám phá khóa học
+        </a>
+    </div>
+
+    <!-- LIST -->
+    <div class="history-list" id="historyList"></div>
+</div>
+
+
+<script>
+
+    // Kiểm tra ngay khi trang bắt đầu tải
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+        alert('Vui lòng đăng nhập để xem lịch sử thanh toán!');
+        // Lưu lại trang hiện tại để sau khi login xong có thể quay lại đây
+        sessionStorage.setItem('authRedirectTarget', 'payment_history.html');
+        window.location.href = 'login_out.html';
+    }
+    function goToPaymentHistory() {
+    const targetPage = 'payment_history.html';
+
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        // Đã đăng nhập -> Cho vào xem
+        window.location.href = targetPage;
+    } else {
+        // Chưa đăng nhập -> Chặn lại
+        alert('Cần đăng nhập để xem lịch sử thanh toán!');
+        sessionStorage.setItem('authRedirectTarget', targetPage);
+        window.location.href = 'login_out.html';
+    }
+}
+const KEY = 'ielts_payments';
+let allData = [];
+let currentFilter = 'all';
+
+function load() {
+    allData = JSON.parse(localStorage.getItem(KEY) || '[]');
+    renderStats();
+    render(allData);
+}
+
+function renderStats() {
+    const n = allData.length;
+    if (n === 0) { document.getElementById('statsRow').style.display = 'none'; return; }
+    document.getElementById('statsRow').style.display = '';
+    document.getElementById('toolbar').style.display = '';
+    document.getElementById('filterRow').style.display = '';
+    document.getElementById('statCount').textContent = n;
+    document.getElementById('statSuccess').textContent = allData.filter(d => d.status && d.status.includes('✅')).length;
+    const unique = [...new Set(allData.map(d => d.course))].length;
+    document.getElementById('statCourses').textContent = unique;
+}
+
+function render(data) {
+    const list  = document.getElementById('historyList');
+    const empty = document.getElementById('emptyState');
+
+    if (data.length === 0) {
+        empty.style.display = 'block';
+        list.innerHTML = '';
+        return;
+    }
+    empty.style.display = 'none';
+
+    list.innerHTML = data.map((item, i) => {
+        const isInstall = item.type && item.type.includes('Trả góp');
+        const typeCls  = isInstall ? 'type-install' : 'type-full';
+        const typeIcon = isInstall ? 'fa-calendar-days' : 'fa-bolt-lightning';
+        return `
+        <div class="history-item" style="animation-delay:${i*0.05}s">
+            <div class="hi-top">
+                <div>
+                    <div class="hi-course">${item.course}</div>
+                    <div class="hi-meta">
+                        <span><i class="fa-solid fa-door-open"></i> Lớp ${item.cls || '—'}</span>
+                        <span><i class="fa-solid fa-user"></i> ${item.name || '—'}</span>
+                        <span><i class="fa-solid fa-phone"></i> ${item.phone || '—'}</span>
+                        <span><i class="fa-solid fa-clock"></i> ${item.time}</span>
+                    </div>
+                    <div class="hi-txn">Mã GD: ${item.txn}</div>
+                </div>
+                <span class="status-badge ${item.status && item.status.includes('✅') ? 'status-ok' : 'status-pend'}">${item.status || '⏳ Đang xử lý'}</span>
+            </div>
+            <div class="hi-bottom">
+                <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                    <div class="hi-amount">${item.amount}</div>
+                    <span class="hi-type-badge ${typeCls}"><i class="fa-solid ${typeIcon}"></i> ${item.type}</span>
+                    <span style="font-size:.8rem;color:#94a3b8;"><i class="fa-solid fa-building-columns"></i> ${item.method || '—'}</span>
+                </div>
+                <div class="hi-actions">
+                    <button class="hi-action-btn" onclick="viewDetail(${i})"><i class="fa-solid fa-eye"></i> Chi tiết</button>
+                    <button class="hi-action-btn" onclick="deleteItem(${i})" style="color:#ef4444;border-color:#fecaca;"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+function applyFilter(f, el) {
+    currentFilter = f;
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    if (f === 'all') render(allData);
+    else if (f === 'full') render(allData.filter(d => !d.type || !d.type.includes('Trả góp')));
+    else render(allData.filter(d => d.type && d.type.includes('Trả góp')));
+}
+
+function viewDetail(i) {
+    const d = allData[i];
+    const lines = [
+        ['Mã giao dịch', d.txn],
+        ['Khóa học', d.course],
+        ['Lớp', d.cls],
+        ['Học viên', d.name],
+        ['Điện thoại', d.phone],
+        ['Email', d.email],
+        ['Hình thức TT', d.type],
+        ['Số tiền', d.amount],
+        ['Tổng học phí', d.total],
+        ['Phương thức', d.method],
+        ['Thời gian', d.time],
+        ['Trạng thái', d.status],
+    ].map(([k,v]) => `${k}: ${v||'—'}`).join('\n');
+    alert(lines);
+}
+
+function deleteItem(idx) {
+    if (!confirm('Xóa giao dịch này?')) return;
+    allData.splice(idx, 1);
+    localStorage.setItem(KEY, JSON.stringify(allData));
+    renderStats();
+    applyFilter(currentFilter, document.querySelector('.filter-chip.active') || document.querySelector('.filter-chip'));
+}
+
+function clearAll() {
+    if (!confirm('Xóa toàn bộ lịch sử thanh toán? Hành động này không thể hoàn tác.')) return;
+    localStorage.removeItem(KEY);
+    allData = [];
+    document.getElementById('statsRow').style.display = 'none';
+    document.getElementById('toolbar').style.display  = 'none';
+    document.getElementById('filterRow').style.display = 'none';
+    render([]);
+}
+
+function exportCSV() {
+    if (!allData.length) return alert('Không có dữ liệu để xuất.');
+    const header = ['Mã GD','Khóa học','Lớp','Học viên','Điện thoại','Email','Hình thức','Số tiền','Tổng','Phương thức','Thời gian','Trạng thái'];
+    const rows = allData.map(d => [d.txn,d.course,d.cls,d.name,d.phone,d.email,d.type,d.amount,d.total,d.method,d.time,d.status].map(v=>`"${(v||'').replace(/"/g,'""')}"`).join(','));
+    const csv = '\uFEFF' + [header.join(','), ...rows].join('\n');
+    const a = document.createElement('a');
+    a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+    a.download = 'lichsu_thanhtoan_ielts.csv';
+    a.click();
+}
+
+// Auto reload when other tab saves payment
+window.addEventListener('storage', e => { if (e.key === KEY) load(); });
+
+load();
+</script>
+</body>
+</html>
