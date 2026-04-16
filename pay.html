@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán | IELTS GLOBAL</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #1e293b; }
+
+        /* ---- NAVBAR ---- */
+        .navbar { background: #fff; box-shadow: 0 1px 0 #e2e8f0; padding: 0; position: sticky; top:0; z-index:100; }
+        .navbar .container { display:flex; align-items:center; gap:16px; padding:14px 24px; max-width:1280px; margin:0 auto; }
+        .logo { font-weight:900; font-size:1.3rem; color:#4f46e5; display:flex; align-items:center; gap:4px; }
+        .logo .logo-text { color:#4f46e5; }
+        .nav-back { display:flex; align-items:center; gap:8px; text-decoration:none; color:#64748b; font-size:.9rem; margin-left:auto; padding:8px 16px; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0; transition:.2s; }
+        .nav-back:hover { background:#e2e8f0; color:#1e293b; }
+
+        /* ---- PROGRESS BAR ---- */
+        .progress-bar {
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 24px;
+        }
+        .progress-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; gap: 0; }
+        .progress-step { display:flex; align-items:center; gap: 8px; font-size:.85rem; }
+        .step-num {
+            width: 28px; height: 28px; border-radius: 50%;
+            display:flex; align-items:center; justify-content:center;
+            font-weight: 700; font-size: .8rem; flex-shrink: 0;
+        }
+        .step-done .step-num { background: #10b981; color: #fff; }
+        .step-active .step-num { background: #4f46e5; color: #fff; }
+        .step-pending .step-num { background: #e2e8f0; color: #94a3b8; }
+        .step-label { font-weight: 600; color: #64748b; }
+        .step-active .step-label { color: #4f46e5; }
+        .step-done .step-label { color: #10b981; }
+        .step-line { flex: 1; height: 2px; background: #e2e8f0; margin: 0 12px; }
+        .step-line.done { background: #10b981; }
+
+        /* ---- MAIN LAYOUT ---- */
+        .pay-wrap { max-width: 860px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 340px; gap: 28px; }
+        @media(max-width:768px) { .pay-wrap { grid-template-columns: 1fr; padding: 20px 16px; } }
+
+        /* ---- ORDER SUMMARY (RIGHT) ---- */
+        .order-card {
+            background: #fff;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            padding: 28px;
+            height: fit-content;
+            position: sticky;
+            top: 80px;
+            box-shadow: 0 4px 24px rgba(0,0,0,.06);
+        }
+        .order-title { font-size: 1rem; font-weight: 800; color: #1e293b; margin-bottom: 20px; display:flex; align-items:center; gap: 8px; }
+        .order-title i { color: #4f46e5; }
+        .order-course-name { font-weight: 800; font-size: 1.1rem; color: #1e293b; margin-bottom: 6px; }
+        .order-class { font-size: .85rem; color: #64748b; margin-bottom: 16px; }
+        .order-type-badge {
+            display: inline-flex; align-items:center; gap: 6px;
+            padding: 6px 14px; border-radius: 20px;
+            font-size: .8rem; font-weight: 700; margin-bottom: 20px;
+        }
+        .badge-full { background: #d1fae5; color: #065f46; }
+        .badge-install { background: #dbeafe; color: #1d4ed8; }
+        .order-divider { height: 1px; background: #f1f5f9; margin: 16px 0; }
+        .order-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: .9rem; }
+        .order-row .label { color: #64748b; }
+        .order-row .val { font-weight: 600; color: #1e293b; }
+        .order-total { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 2px solid #e2e8f0; }
+        .order-total .label { font-weight: 700; color: #1e293b; }
+        .order-total .val { font-size: 1.4rem; font-weight: 900; color: #4f46e5; }
+        .order-installment-note {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-top: 14px;
+            font-size: .82rem;
+            color: #1d4ed8;
+        }
+        .order-guarantee { display:flex; align-items:center; gap:8px; margin-top:16px; font-size:.8rem; color:#10b981; }
+
+        /* ---- FORM (LEFT) ---- */
+        .form-card {
+            background: #fff;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            padding: 32px;
+            box-shadow: 0 4px 24px rgba(0,0,0,.06);
+        }
+        .form-section-title { font-size: 1rem; font-weight: 800; color: #1e293b; margin-bottom: 20px; display:flex; align-items:center; gap:8px; }
+        .form-section-title i { color: #4f46e5; }
+
+        .form-group { margin-bottom: 18px; }
+        .form-label { display: block; font-size: .85rem; font-weight: 700; color: #374151; margin-bottom: 6px; }
+        .form-label span { color: #ef4444; }
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: .95rem;
+            color: #1e293b;
+            background: #fff;
+            transition: border-color .2s, box-shadow .2s;
+            outline: none;
+            font-family: inherit;
+        }
+        .form-control:focus { border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79,70,229,.1); }
+        .form-control.error { border-color: #ef4444; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        @media(max-width:480px) { .form-row { grid-template-columns: 1fr; } }
+        .error-msg { color: #ef4444; font-size: .78rem; margin-top: 4px; display: none; }
+        .error-msg.show { display: block; }
+
+        /* Payment method */
+        .pay-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+        .pay-method-opt {
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 14px 16px;
+            cursor: pointer;
+            transition: .2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pay-method-opt input[type="radio"] { display: none; }
+        .pay-method-opt .pm-icon { font-size: 1.4rem; }
+        .pay-method-opt .pm-label { font-size: .85rem; font-weight: 700; color: #374151; }
+        .pay-method-opt .pm-sub { font-size: .75rem; color: #94a3b8; }
+        .pay-method-opt:has(input:checked) { border-color: #4f46e5; background: #eef2ff; }
+        .pay-method-opt:has(input:checked) .pm-label { color: #4f46e5; }
+
+        /* Bank info */
+        .bank-info {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .bank-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: .9rem; }
+        .bank-row:last-child { margin-bottom: 0; }
+        .bank-row .bk-label { color: #64748b; }
+        .bank-row .bk-val { font-weight: 700; color: #1e293b; display:flex; align-items:center; gap: 8px; }
+        .copy-btn { background: none; border: 1px solid #d1d5db; border-radius: 6px; padding: 2px 8px; font-size: .75rem; cursor: pointer; color: #4f46e5; transition: .15s; }
+        .copy-btn:hover { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+        .bank-qr { text-align: center; margin-top: 14px; }
+        .bank-qr-placeholder { width: 120px; height: 120px; background: #e2e8f0; border-radius: 12px; margin: 0 auto; display:flex; align-items:center; justify-content:center; color: #94a3b8; font-size: .75rem; }
+        .bank-note { margin-top: 10px; font-size: .78rem; color: #f59e0b; background: #fef3c7; border-radius: 8px; padding: 8px 12px; }
+
+        .card-fields { display: none; }
+        .card-fields.visible { display: block; }
+
+        /* Submit */
+        .submit-btn {
+            width: 100%;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            color: #fff;
+            border: none;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all .3s;
+            box-shadow: 0 10px 30px rgba(79,70,229,.4);
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            margin-top: 8px;
+        }
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 48px rgba(79,70,229,.45); }
+        .submit-btn:active { transform: translateY(0); }
+        .submit-btn:disabled { background: #9ca3af; box-shadow: none; cursor: not-allowed; transform: none; }
+        .submit-note { text-align: center; font-size: .78rem; color: #94a3b8; margin-top: 10px; }
+
+        /* ---- SUCCESS SCREEN ---- */
+        .success-screen {
+            display: none;
+            max-width: 560px;
+            margin: 60px auto;
+            text-align: center;
+            padding: 0 24px;
+        }
+        .success-screen.show { display: block; }
+        .success-icon {
+            width: 90px; height: 90px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex; align-items:center; justify-content:center;
+            font-size: 2.5rem;
+            margin: 0 auto 24px;
+            box-shadow: 0 16px 48px rgba(16,185,129,.4);
+            animation: popIn .5s cubic-bezier(.23,1,.32,1);
+        }
+        @keyframes popIn { from { transform: scale(0); opacity:0 } to { transform: scale(1); opacity:1 } }
+        .success-screen h2 { font-size: 1.8rem; font-weight: 900; color: #1e293b; margin-bottom: 12px; }
+        .success-screen p { color: #64748b; font-size: 1rem; line-height: 1.6; margin-bottom: 24px; }
+        .success-txn {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 16px 20px;
+            margin-bottom: 28px;
+            text-align: left;
+        }
+        .success-txn p { margin: 6px 0; font-size: .9rem; color: #64748b; }
+        .success-txn strong { color: #1e293b; }
+        .success-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn-outline { padding: 12px 24px; border-radius: 12px; border: 2px solid #4f46e5; color: #4f46e5; text-decoration: none; font-weight: 700; font-size: .95rem; transition: .2s; }
+        .btn-outline:hover { background: #4f46e5; color: #fff; }
+        .btn-primary { padding: 12px 24px; border-radius: 12px; background: linear-gradient(135deg,#4f46e5,#6366f1); color: #fff; text-decoration: none; font-weight: 700; font-size: .95rem; transition: .2s; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,.4); }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container">
+        <div class="logo"><span class="logo-text">IELTS</span> GLOBAL</div>
+        <a href="Danhsachkhoahoc.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Quay lại</a>
+    </div>
+</nav>
+
+<!-- SUCCESS SCREEN (hidden by default) -->
+<div class="success-screen" id="successScreen">
+    <div class="success-icon">✓</div>
+    <h2>Thanh toán thành công!</h2>
+    <p>Chúng tôi đã nhận được thông tin đăng ký của bạn. Nhân viên tư vấn sẽ liên hệ trong vòng <strong>30 phút</strong> để xác nhận lớp học.</p>
+    <div class="success-txn" id="successDetail"></div>
+    <div class="success-actions">
+        <a href="payment_history.html" class="btn-outline"><i class="fa-solid fa-receipt"></i> Lịch sử thanh toán</a>
+        <a href="Danhsachkhoahoc.html" class="btn-primary"><i class="fa-solid fa-graduation-cap"></i> Xem khóa học khác</a>
+    </div>
+</div>
+
+<!-- MAIN FORM -->
+<div class="pay-wrap" id="payForm">
+
+    <!-- LEFT: Form -->
+    <div>
+        <div class="form-card">
+            <div class="form-section-title"><i class="fa-solid fa-user"></i> Thông tin học viên</div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Họ và tên <span>*</span></label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Nguyễn Văn A">
+                    <div class="error-msg" id="errName">Vui lòng nhập họ tên</div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Số điện thoại <span>*</span></label>
+                    <input type="tel" class="form-control" id="phone" placeholder="0912 345 678">
+                    <div class="error-msg" id="errPhone">Vui lòng nhập số điện thoại hợp lệ</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Email <span>*</span></label>
+                <input type="email" class="form-control" id="email" placeholder="email@example.com">
+                <div class="error-msg" id="errEmail">Vui lòng nhập email hợp lệ</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Ghi chú</label>
+                <textarea class="form-control" id="note" rows="2" placeholder="Yêu cầu đặc biệt, câu hỏi cho tư vấn viên..."></textarea>
+            </div>
+        </div>
+
+        <div class="form-card" style="margin-top:20px;">
+            <div class="form-section-title"><i class="fa-solid fa-credit-card"></i> Phương thức thanh toán</div>
+
+            <div class="pay-methods">
+                <label class="pay-method-opt">
+                    <input type="radio" name="payMethod" value="bank" checked onchange="switchMethod('bank')">
+                    <span class="pm-icon">🏦</span>
+                    <div>
+                        <div class="pm-label">Chuyển khoản</div>
+                        <div class="pm-sub">Ngân hàng / QR</div>
+                    </div>
+                </label>
+                <label class="pay-method-opt">
+                    <input type="radio" name="payMethod" value="card" onchange="switchMethod('card')">
+                    <span class="pm-icon">💳</span>
+                    <div>
+                        <div class="pm-label">Thẻ tín dụng</div>
+                        <div class="pm-sub">Visa / MasterCard</div>
+                    </div>
+                </label>
+            </div>
+
+            <!-- Bank transfer info -->
+            <div id="bankSection">
+                <div class="bank-info">
+                    <div class="bank-row">
+                        <span class="bk-label">Ngân hàng</span>
+                        <span class="bk-val">Vietcombank (VCB)</span>
+                    </div>
+                    <div class="bank-row">
+                        <span class="bk-label">Số tài khoản</span>
+                        <span class="bk-val">1234 5678 9012 <button class="copy-btn" onclick="copyText('1234567890123456')">Copy</button></span>
+                    </div>
+                    <div class="bank-row">
+                        <span class="bk-label">Chủ tài khoản</span>
+                        <span class="bk-val">CÔNG TY IELTS GLOBAL</span>
+                    </div>
+                    <div class="bank-row">
+                        <span class="bk-label">Nội dung CK</span>
+                        <span class="bk-val" id="bankContent">IELTS – [Họ tên] <button class="copy-btn" onclick="copyBankContent()">Copy</button></span>
+                    </div>
+                    <div class="bank-qr">
+                        <div class="bank-qr-placeholder"><i class="fa-solid fa-qrcode" style="font-size:2rem;color:#94a3b8"></i></div>
+                        <p style="font-size:.75rem;color:#94a3b8;margin-top:6px;">Quét QR để chuyển khoản</p>
+                    </div>
+                    <div class="bank-note"><i class="fa-solid fa-circle-info"></i> Sau khi chuyển khoản, bấm <strong>"Xác nhận đăng ký"</strong> để hoàn tất. Chúng tôi sẽ xác minh trong 30 phút.</div>
+                </div>
+            </div>
+
+            <!-- Card fields -->
+            <div class="card-fields" id="cardSection">
+                <div class="form-group">
+                    <label class="form-label">Số thẻ <span>*</span></label>
+                    <input type="text" class="form-control" id="cardNum" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)">
+                    <div class="error-msg" id="errCard">Vui lòng nhập số thẻ hợp lệ</div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Ngày hết hạn <span>*</span></label>
+                        <input type="text" class="form-control" id="cardExp" placeholder="MM/YY" maxlength="5" oninput="formatExp(this)">
+                        <div class="error-msg" id="errExp">Nhập định dạng MM/YY</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">CVV <span>*</span></label>
+                        <input type="password" class="form-control" id="cardCvv" placeholder="•••" maxlength="4">
+                        <div class="error-msg" id="errCvv">Nhập CVV 3-4 số</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tên trên thẻ <span>*</span></label>
+                    <input type="text" class="form-control" id="cardName" placeholder="NGUYEN VAN A">
+                    <div class="error-msg" id="errCardName">Vui lòng nhập tên trên thẻ</div>
+                </div>
+            </div>
+
+            <button class="submit-btn" onclick="handleSubmit()" id="submitBtn">
+                <i class="fa-solid fa-lock"></i> Xác nhận đăng ký
+            </button>
+            <p class="submit-note"><i class="fa-solid fa-shield-halved" style="color:#10b981"></i> Giao dịch được mã hóa SSL 256-bit · Dữ liệu bảo mật tuyệt đối</p>
+        </div>
+    </div>
+
+    <!-- RIGHT: Order summary -->
+    <div>
+        <div class="order-card">
+            <div class="order-title"><i class="fa-solid fa-receipt"></i> Đơn hàng của bạn</div>
+            <div class="order-course-name" id="sumCourse">—</div>
+            <div class="order-class" id="sumClass">—</div>
+            <div id="sumTypeBadge"></div>
+            <div class="order-divider"></div>
+            <div class="order-row" id="sumPriceRow" style="display:none">
+                <span class="label">Học phí</span>
+                <span class="val" id="sumPrice">—</span>
+            </div>
+            <div class="order-row" id="sumDiscRow" style="display:none">
+                <span class="label" style="color:#10b981"><i class="fa-solid fa-tag"></i> Ưu đãi thanh toán 1 lần</span>
+                <span class="val" style="color:#10b981" id="sumDisc">—</span>
+            </div>
+            <div class="order-total">
+                <span class="label">Thanh toán ngay</span>
+                <span class="val" id="sumTotal">—</span>
+            </div>
+            <div id="installmentNote" style="display:none" class="order-installment-note">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span id="installNoteText"></span>
+            </div>
+            <div class="order-divider"></div>
+            <div class="order-guarantee"><i class="fa-solid fa-shield-halved"></i> Hoàn tiền 100% nếu không đạt</div>
+            <div class="order-guarantee"><i class="fa-solid fa-phone"></i> Hỗ trợ 8:00 – 21:00 mỗi ngày</div>
+        </div>
+    </div>
+</div>
+
+<script>
+/* ===== READ URL PARAMS ===== */
+const p = new URLSearchParams(location.search);
+const COURSE  = p.get('course')  || 'Khóa học IELTS';
+const CLASS   = p.get('class')   || '—';
+const TYPE    = p.get('type')    || 'full';
+const PRICE   = parseInt(p.get('price')   || '0');
+const MONTHS  = parseInt(p.get('months')  || '1');
+const MONTHLY = parseInt(p.get('monthly') || PRICE);
+
+const fmt = n => n.toLocaleString('vi-VN') + 'đ';
+
+/* ===== POPULATE SUMMARY ===== */
+document.getElementById('sumCourse').textContent = COURSE;
+document.getElementById('sumClass').textContent  = 'Lớp: ' + CLASS;
+
+if (TYPE === 'installment') {
+    document.getElementById('sumTypeBadge').innerHTML =
+        `<span class="order-type-badge badge-install"><i class="fa-solid fa-calendar-days"></i> Trả góp ${MONTHS} tháng</span>`;
+    document.getElementById('sumTotal').textContent = fmt(MONTHLY) + '/tháng';
+    document.getElementById('installmentNote').style.display = 'block';
+    document.getElementById('installNoteText').textContent =
+        `Trả ${MONTHS} lần × ${fmt(MONTHLY)} = Tổng ${fmt(MONTHS * MONTHLY)} · 0% lãi suất`;
+    document.getElementById('sumPriceRow').style.display = 'flex';
+    document.getElementById('sumPrice').textContent = fmt(MONTHS * MONTHLY);
+} else {
+    document.getElementById('sumTypeBadge').innerHTML =
+        `<span class="order-type-badge badge-full"><i class="fa-solid fa-bolt-lightning"></i> Thanh toán một lần</span>`;
+    document.getElementById('sumPriceRow').style.display = 'flex';
+    document.getElementById('sumPrice').textContent = fmt(PRICE);
+    document.getElementById('sumTotal').textContent = fmt(PRICE);
+}
+
+document.title = 'Thanh toán – ' + COURSE + ' | IELTS GLOBAL';
+
+/* Update bank content when name changes */
+document.getElementById('fullName').addEventListener('input', function() {
+    document.getElementById('bankContent').innerHTML =
+        `IELTS – ${this.value || '[Họ tên]'} <button class="copy-btn" onclick="copyBankContent()">Copy</button>`;
+});
+
+/* ===== PAYMENT METHOD SWITCH ===== */
+function switchMethod(m) {
+    document.getElementById('bankSection').style.display = m === 'bank' ? 'block' : 'none';
+    document.getElementById('cardSection').classList.toggle('visible', m === 'card');
+}
+
+/* ===== FORMAT CARD INPUTS ===== */
+function formatCard(el) {
+    let v = el.value.replace(/\D/g,'').substring(0,16);
+    el.value = v.replace(/(.{4})/g,'$1 ').trim();
+}
+function formatExp(el) {
+    let v = el.value.replace(/\D/g,'');
+    if (v.length > 2) v = v.substring(0,2) + '/' + v.substring(2,4);
+    el.value = v;
+}
+
+/* ===== COPY HELPERS ===== */
+function copyText(t) {
+    navigator.clipboard.writeText(t).then(()=>alert('Đã copy: ' + t));
+}
+function copyBankContent() {
+    const name = document.getElementById('fullName').value || '[Họ tên]';
+    copyText('IELTS – ' + name);
+}
+
+/* ===== VALIDATION ===== */
+function validate() {
+    let ok = true;
+    const show = (id, msg, cond) => {
+        document.getElementById('err'+id).textContent = msg;
+        document.getElementById('err'+id).classList.toggle('show', !cond);
+        document.getElementById(id.toLowerCase() === id ? id : id).classList.toggle('error', !cond);
+        if (!cond) ok = false;
+    };
+
+    const name  = document.getElementById('fullName').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    if (!name) { document.getElementById('errName').classList.add('show'); document.getElementById('fullName').classList.add('error'); ok=false; }
+    else { document.getElementById('errName').classList.remove('show'); document.getElementById('fullName').classList.remove('error'); }
+
+    const phoneOk = /^0\d{9,10}$/.test(phone.replace(/\s/g,''));
+    if (!phoneOk) { document.getElementById('errPhone').classList.add('show'); document.getElementById('phone').classList.add('error'); ok=false; }
+    else { document.getElementById('errPhone').classList.remove('show'); document.getElementById('phone').classList.remove('error'); }
+
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailOk) { document.getElementById('errEmail').classList.add('show'); document.getElementById('email').classList.add('error'); ok=false; }
+    else { document.getElementById('errEmail').classList.remove('show'); document.getElementById('email').classList.remove('error'); }
+
+    const method = document.querySelector('input[name="payMethod"]:checked').value;
+    if (method === 'card') {
+        const card = document.getElementById('cardNum').value.replace(/\s/g,'');
+        if (card.length < 16) { document.getElementById('errCard').classList.add('show'); document.getElementById('cardNum').classList.add('error'); ok=false; }
+        else { document.getElementById('errCard').classList.remove('show'); document.getElementById('cardNum').classList.remove('error'); }
+
+        const exp = document.getElementById('cardExp').value;
+        if (!/^\d{2}\/\d{2}$/.test(exp)) { document.getElementById('errExp').classList.add('show'); document.getElementById('cardExp').classList.add('error'); ok=false; }
+        else { document.getElementById('errExp').classList.remove('show'); document.getElementById('cardExp').classList.remove('error'); }
+
+        const cvv = document.getElementById('cardCvv').value;
+        if (cvv.length < 3) { document.getElementById('errCvv').classList.add('show'); document.getElementById('cardCvv').classList.add('error'); ok=false; }
+        else { document.getElementById('errCvv').classList.remove('show'); document.getElementById('cardCvv').classList.remove('error'); }
+
+        const cn = document.getElementById('cardName').value.trim();
+        if (!cn) { document.getElementById('errCardName').classList.add('show'); document.getElementById('cardName').classList.add('error'); ok=false; }
+        else { document.getElementById('errCardName').classList.remove('show'); document.getElementById('cardName').classList.remove('error'); }
+    }
+    return ok;
+}
+
+/* ===== SUBMIT ===== */
+function handleSubmit() {
+    if (!validate()) return;
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang xử lý...';
+
+    // Simulate processing delay
+    setTimeout(() => {
+        const method = document.querySelector('input[name="payMethod"]:checked').value;
+        const name   = document.getElementById('fullName').value.trim();
+        const phone  = document.getElementById('phone').value.trim();
+        const email  = document.getElementById('email').value.trim();
+
+        const txnId = 'TXN' + Date.now().toString().slice(-8).toUpperCase();
+        const now   = new Date();
+        const timeStr = now.toLocaleString('vi-VN');
+
+        const record = {
+            txn:     txnId,
+            course:  COURSE,
+            cls:     CLASS,
+            type:    TYPE === 'full' ? 'Thanh toán một lần' : `Trả góp ${MONTHS} tháng`,
+            amount:  TYPE === 'full' ? fmt(PRICE) : fmt(MONTHLY) + '/tháng',
+            total:   TYPE === 'full' ? fmt(PRICE) : fmt(MONTHS * MONTHLY),
+            method:  method === 'bank' ? 'Chuyển khoản ngân hàng' : 'Thẻ tín dụng',
+            name, phone, email,
+            time:    timeStr,
+            status:  '✅ Đã xác nhận'
+        };
+
+        // Save to localStorage
+        const KEY = 'ielts_payments';
+        const hist = JSON.parse(localStorage.getItem(KEY) || '[]');
+        hist.unshift(record);
+        localStorage.setItem(KEY, JSON.stringify(hist));
+
+        // Show success
+        document.getElementById('payForm').style.display  = 'none';
+        const suc = document.getElementById('successScreen');
+        suc.classList.add('show');
+
+        document.getElementById('successDetail').innerHTML = `
+            <p><strong>Mã giao dịch:</strong> ${txnId}</p>
+            <p><strong>Khóa học:</strong> ${COURSE} — Lớp ${CLASS}</p>
+            <p><strong>Hình thức:</strong> ${record.type}</p>
+            <p><strong>Số tiền:</strong> ${record.amount}</p>
+            <p><strong>Phương thức:</strong> ${record.method}</p>
+            <p><strong>Thời gian:</strong> ${timeStr}</p>
+        `;
+
+        // Scroll up
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 1800);
+}
+</script>
+</body>
+</html>
