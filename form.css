@@ -1,0 +1,43 @@
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #64748b;
+    /* Màu xám nhẹ hiện đại */
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.back-link i {
+    margin-right: 8px;
+    font-size: 0.8rem;
+}
+
+.back-link:hover {
+    color: #4f46e5;
+    /* Đổi sang màu tím/xanh khi hover */
+    transform: translateX(-5px);
+    /* Hiệu ứng nhích nhẹ sang trái */
+}
+
+/* Cấu trúc lại Form một chút để nút nằm đúng vị trí */
+.consult-form {
+    position: relative;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Tinh chỉnh tiêu đề form để không bị sát nút quay lại */
+.form-title {
+    margin-top: 5px;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    color: #1e2937;
+    font-weight: 700;
+}

@@ -1,0 +1,226 @@
+/* ===== GIOITHIEU PAGE STYLES ===== */
+
+.section {
+  padding: 100px 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.feature-item {
+  text-align: center;
+}
+
+.feature-item i {
+  font-size: 3.5rem;
+  color: #4f46e5;
+  margin-bottom: 20px;
+}
+
+.feature-item h3 {
+  margin: 16px 0 12px;
+  font-size: 1.5rem;
+  color: #1e2937;
+}
+
+.feature-item p {
+  color: #64748b;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== TIMELINE STYLES FOR ORIGIN STORY ===== */
+.origin-timeline {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  position: relative;
+  padding: 0 20px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: 50px;
+}
+
+.timeline-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #2c5aa0, #4f46e5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-right: 30px;
+  box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+  z-index: 2;
+}
+
+.timeline-content {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  position: relative;
+}
+
+.timeline-content h4 {
+  color: #2c5aa0;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.timeline-content p {
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Timeline line */
+.origin-timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #2c5aa0, #4f46e5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .timeline-icon {
+    margin: 0 auto 20px;
+  }
+
+  .timeline-content {
+    margin-left: 0 !important;
+  }
+
+  .origin-timeline::before {
+    left: 20px;
+  }
+}
+
+/* ===== INVESTOR & TEAM SECTION ===== */
+.investor-card {
+  transition: all 0.3s ease;
+}
+
+.investor-card:hover {
+  transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+  .investor-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Container chính chứa tiêu đề và khung cuộn */
+.branches-section {
+  padding: 50px 0;
+  overflow: hidden;
+  /* Tránh vỡ khung trang */
+}
+
+/* Biến đổi branch-grid thành khung cuộn ngang */
+.branch-grid {
+  display: flex;
+  /* Chuyển sang Flexbox */
+  gap: 20px;
+  /* Khoảng cách giữa các ảnh */
+  overflow-x: auto;
+  /* Kích hoạt thanh cuộn ngang */
+  padding: 20px 15px;
+  scroll-snap-type: x mandatory;
+  /* Hiệu ứng cuộn khớp ảnh */
+  -webkit-overflow-scrolling: touch;
+  /* Cuộn mượt trên mobile */
+  scrollbar-width: thin;
+  /* Thanh cuộn nhỏ trên Firefox */
+}
+
+/* Tùy chỉnh thanh cuộn cho Chrome, Safari, Edge */
+.branch-grid::-webkit-scrollbar {
+  height: 6px;
+  /* Độ cao thanh cuộn */
+}
+
+.branch-grid::-webkit-scrollbar-thumb {
+  background: #ccc;
+  /* Màu thanh cuộn */
+  border-radius: 10px;
+}
+
+.branch-grid::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Định dạng từng thẻ ảnh cơ sở */
+.branch-card {
+  flex: 0 0 300px;
+  /* Độ rộng cố định mỗi ảnh là 300px, không co giãn */
+  height: 200px;
+  /* Độ cao cố định */
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  /* Điểm dừng khi cuộn */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.branch-card:hover {
+  transform: translateY(-5px);
+}
+
+.branch-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Đảm bảo ảnh đầy khung không bị méo */
+}
+
+/* Lớp phủ chữ */
+.branch-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 15px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  display: flex;
+  align-items: flex-end;
+}
+
+.branch-name {
+  color: white;
+  margin: 0;
+  font-weight: 600;
+  font-size: 1rem;
+}

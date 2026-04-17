@@ -1,0 +1,1461 @@
+.stats {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.stat-item {
+    background: #fff;
+    padding: 40px 20px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.stat-item i {
+    font-size: 3rem;
+    color: #4f46e5;
+    margin-bottom: 16px;
+}
+
+.stat-item h3 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1e2937;
+}
+
+.stat-item p {
+    font-size: 1.1rem;
+    color: #64748b;
+}
+
+/* COURSES */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+}
+
+.course-card {
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 32px 28px;
+    position: relative;
+    transition: all 0.4s;
+}
+
+.course-card:hover {
+    border-color: #4f46e5;
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px -12px rgb(79 70 229 / 0.15);
+}
+
+.course-card.hot {
+    border-color: #f59e0b;
+}
+
+.badge {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    background: #f59e0b;
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.course-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+    color: #1e2937;
+}
+
+.course-card p {
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    font-weight: 600;
+}
+
+.btn-detail {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    background: #4f46e5;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.testimonial-grid,
+.teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    font-style: italic;
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: '“';
+    font-size: 6rem;
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    opacity: 0.1;
+    color: #4f46e5;
+}
+
+.teacher-card {
+    text-align: center;
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.teacher-card i {
+    font-size: 4rem;
+    color: #4f46e5;
+    margin-bottom: 16px;
+}
+
+.team-students-section {
+    background: #fff;
+    padding: 100px 0;
+}
+
+/* Container chứa các giảng viên */
+.team-grid {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 30px 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+.team-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.team-grid::-webkit-scrollbar-thumb {
+    background: #2c5aa0;
+    /* Màu xanh thương hiệu */
+    border-radius: 10px;
+}
+
+.team-grid::-webkit-scrollbar-track {
+    background: #eee;
+}
+
+/* Định dạng từng mục giảng viên */
+.team-item {
+    flex: 0 0 280px;
+    /* Độ rộng cố định mỗi thẻ là 280px */
+    background: #fff;
+    border-radius: 15px;
+    padding-bottom: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    /* Để info-overlay không tràn ra ngoài */
+    scroll-snap-align: start;
+    /* Điểm dừng khi cuộn */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.team-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Ảnh giảng viên */
+.team-item img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-bottom: 3px solid #2c5aa0;
+}
+
+/* Tên và chức danh phía dưới ảnh */
+.team-item h4 {
+    margin: 15px 0 5px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.team-item p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Giữ nguyên hiệu ứng overlay của bạn nhưng tối ưu hiển thị */
+.info-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 90, 160, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 20px;
+    color: #fff;
+}
+
+.team-item:hover .info-overlay {
+    opacity: 1;
+}
+
+.info-overlay-inner ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.info-overlay-inner ul li {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    border-bottom: 2px solid #4f46e5;
+}
+
+/* Thiết lập khung chứa để Badge không bay ra ngoài */
+.team-item, .student-card {
+    position: relative; /* Bắt buộc có để badge căn theo card */
+}
+
+/* Định dạng huy hiệu điểm Band */
+.band-badge {
+    position: absolute;
+    top: 15px;     
+    left: 15px;     
+    z-index: 10;   
+    background: linear-gradient(135deg, #ffcc00, #ff9900); /* Màu vàng cam rực rỡ */
+    color: #000;
+    font-weight: 800;
+    font-size: 0.9rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.team-item .band-badge {
+    background: linear-gradient(135deg, #2c5aa0, #1a3a6d);
+    color: #fff;
+}
+
+.team-item:hover .band-badge, 
+.student-card:hover .band-badge {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+/* VIDEOS SECTION */
+.videos-section {
+    background: #f8fafc;
+    padding: 100px 0;
+}
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 40px;
+}
+
+.video-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s;
+}
+
+.video-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15);
+}
+
+.video-image {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-image iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px 8px 0 0;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.video-card:hover .play-overlay {
+    opacity: 1;
+}
+
+.play-overlay:hover {
+    background: rgba(79, 70, 229, 0.9);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.video-card:hover .video-image img {
+    transform: scale(1.05);
+}
+
+.video-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #4f46e5;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.video-content {
+    padding: 32px 28px;
+}
+
+.video-date {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.video-date::before {
+    content: '📅';
+    font-size: 1rem;
+}
+
+.video-card h4 {
+    font-size: 1.6rem;
+    color: #1e2937;
+    margin: 0 0 16px 0;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.video-card p {
+    color: #64748b;
+    margin: 0 0 24px 0;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.video-link {
+    display: inline-block;
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.video-link:hover {
+    color: #4338ca;
+    border-bottom-color: #4f46e5;
+}
+
+/*Student*/
+/* Container chứa danh sách học sinh */
+.student-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 10px 40px 10px;
+    /* Padding dưới để lộ bóng đổ */
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Tùy chỉnh thanh cuộn cho mượt */
+.student-grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.student-grid::-webkit-scrollbar-thumb {
+    background: #ffcc00;
+    /* Màu vàng năng động cho học sinh */
+    border-radius: 10px;
+}
+
+/* Card học sinh */
+.student-card {
+    flex: 0 0 250px;
+    /* Học sinh để card nhỏ hơn giảng viên một chút (250px) */
+    background: #fff;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.student-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Ảnh học sinh */
+.student-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+/* Thông tin tên và band */
+.student-card h4 {
+    margin: 12px 0 5px;
+    font-size: 1.05rem;
+    color: #222;
+}
+
+.student-card p {
+    font-size: 0.85rem;
+    color: #2c5aa0;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Overlay khi hover (Hiệu ứng giống phần giảng viên) */
+.student-card .info-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(254, 254, 254, 0.95);
+    /* Overlay màu vàng trong suốt */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+    padding: 20px;
+}
+
+.student-card:hover .info-overlay {
+    opacity: 1;
+}
+
+.student-card .info-overlay h4 {
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.student-card .info-overlay ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.student-card .info-overlay ul li {
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #4f46e5;
+    padding-bottom: 4px;
+}
+
+/* INFO OVERLAY FOR TEAM/STUDENT CARDS */
+.info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    color: #1e2937;
+    padding: 20px;
+    border-radius: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.info-overlay-inner {
+    padding: 0;
+}
+
+.info-overlay h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.info-overlay ul {
+    list-style: none;
+    font-size: 0.95rem;
+}
+
+.info-overlay li {
+    margin-bottom: 8px;
+}
+
+.team-item:hover .info-overlay,
+.student-card:hover .info-overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* HOME PAGE RESPONSIVE */
+@media (max-width: 768px) {
+
+    .stats-grid,
+    .courses-grid,
+    .student-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(5, minmax(100px, 1fr));
+    }
+}
+
+/* CONSULT FORM SECTION */
+.consult-form-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    padding: 100px 0;
+}
+
+.consult-form-section .container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.form-left h2 {
+    font-size: 2.8rem;
+    color: #1e2937;
+    margin-bottom: 12px;
+}
+
+.form-left p {
+    font-size: 1.4rem;
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+.highlight-box {
+    background: #fff;
+    padding: 20px 24px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+    color: #4f46e5;
+}
+
+/* PARTNERS SECTION */
+.partners-section {
+    padding: 100px 0;
+    background: transparent;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 50px;
+    margin-top: 60px;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+}
+
+.partner-logo-item {
+    background: #fff;
+    padding: 15px; 
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ nhàng hơn */
+    border: 4px solid white;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Thêm đoạn này để xử lý hình ảnh */
+.partner-logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Giữ logo nguyên vẹn, không bị mất nét */
+    transition: transform 0.4s ease;
+}
+
+/* Hiệu ứng phóng nhẹ logo khi hover giống các web hiện đại */
+.partner-logo-item:hover img {
+    transform: scale(1.1);
+}
+
+.partner-logo-item:hover {
+    border-color: #5dc0e8; /* Màu tím giống trong hình của bạn */
+    box-shadow: 0 15px 35px rgba(89, 39, 229, 0.2);
+}
+
+.partner-logo-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0) 0%, rgba(79, 70, 229, 0.05) 100%);
+    border-radius: 50%;
+}
+
+.promo-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* COUNTDOWN TIMER */
+.countdown-section {
+    margin: 25px 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.countdown-title {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-family: 'Digital-7', monospace;
+    font-size: 0;
+}
+
+.time-item {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    border-radius: 12px;
+    padding: 20px 15px;
+    box-shadow: 0 8px 25px rgba(238, 90, 82, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    min-width: 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.time-number {
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    display: block;
+    min-height: 80px;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.time-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+.time-separator {
+    font-size: 2.5rem;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.urgency-text {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #ffcc00;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    animation: urgency-pulse 2s ease-in-out infinite;
+}
+
+@keyframes urgency-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.promo-sparkles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.sparkle {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    border-radius: 50%;
+    animation: sparkle-twinkle 1.5s ease-in-out infinite, sparkle-float 3s ease-in-out infinite;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.9), inset -2px -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sparkle:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.sparkle:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.sparkle:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+@keyframes sparkle-twinkle {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+@keyframes sparkle-float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-12px) rotate(90deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+
+    75% {
+        transform: translateY(-12px) rotate(270deg);
+    }
+}
+
+/* MASCOT & DISCOUNT CARD */
+.mascot-container {
+    position: relative;
+    z-index: 2;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    animation: mascot-bounce 2s ease-in-out infinite, mascot-rotate 4s linear infinite;
+}
+
+@keyframes mascot-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+@keyframes mascot-rotate {
+
+    0%,
+    100% {
+        transform: rotateZ(-2deg);
+    }
+
+    50% {
+        transform: rotateZ(2deg);
+    }
+}
+
+.mascot {
+    position: relative;
+    width: 140px;
+    height: 180px;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+}
+
+.mascot-head {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 110px;
+    height: 110px;
+    background: linear-gradient(135deg, #ff9a56 0%, #ff8a2e 100%);
+    border-radius: 50%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset -8px -8px 16px rgba(0, 0, 0, 0.1);
+    animation: head-tilt 2s ease-in-out infinite;
+}
+
+@keyframes head-tilt {
+
+    0%,
+    100% {
+        transform: rotateZ(-3deg);
+    }
+
+    50% {
+        transform: rotateZ(3deg);
+    }
+}
+
+.mascot-eyes {
+    position: absolute;
+    top: 35px;
+    left: 22px;
+    display: flex;
+    gap: 22px;
+    width: 66px;
+}
+
+.eye {
+    width: 14px;
+    height: 20px;
+    background: #000;
+    border-radius: 50%;
+    position: relative;
+    animation: eye-blink 3s ease-in-out infinite;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.eye::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 7px;
+    background: #fff;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes eye-blink {
+
+    0%,
+    90%,
+    100% {
+        height: 20px;
+    }
+
+    95% {
+        height: 2px;
+    }
+}
+
+.mascot-mouth {
+    position: absolute;
+    bottom: 12px;
+    left: 40px;
+    width: 30px;
+    height: 14px;
+    border: 2px solid #000;
+    border-top: none;
+    border-radius: 0 0 30px 30px;
+    animation: mouth-laugh 1.8s ease-in-out infinite;
+}
+
+@keyframes mouth-laugh {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(1.3);
+    }
+}
+
+.mascot-body {
+    position: absolute;
+    top: 95px;
+    left: 25px;
+    width: 90px;
+    height: 70px;
+    background: linear-gradient(135deg, #ff9a56 0%, #ff8a2e 100%);
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), inset -6px -6px 12px rgba(0, 0, 0, 0.1);
+    animation: body-wobble 1.5s ease-in-out infinite;
+}
+
+@keyframes body-wobble {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(1.05);
+    }
+}
+
+.mascot-hand-left {
+    position: absolute;
+    top: 105px;
+    left: -15px;
+    width: 42px;
+    height: 25px;
+    background: #ff9a56;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: hand-wave-left 1.2s ease-in-out infinite;
+    transform-origin: right center;
+    transform: rotate(-30deg);
+}
+
+.mascot-hand-right {
+    position: absolute;
+    top: 105px;
+    right: -15px;
+    width: 42px;
+    height: 25px;
+    background: #ff9a56;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: hand-wave-right 1.2s ease-in-out infinite;
+    transform-origin: left center;
+    transform: rotate(30deg);
+}
+
+@keyframes hand-wave-left {
+
+    0%,
+    100% {
+        transform: rotate(-30deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(45deg) translateY(-8px);
+    }
+}
+
+@keyframes hand-wave-right {
+
+    0%,
+    100% {
+        transform: rotate(30deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-45deg) translateY(-8px);
+    }
+}
+
+.discount-card {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    border-radius: 20px;
+    padding: 30px 45px;
+    margin-bottom: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 0 20px rgba(255, 215, 0, 0.5);
+    border: 4px solid #ffb700;
+    animation: card-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), card-rotate 3s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.card-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.5) 50%, transparent 70%);
+    border-radius: 20px;
+    animation: shine-effect 2.5s ease-in-out infinite;
+}
+
+@keyframes shine-effect {
+
+    0%,
+    100% {
+        left: -100%;
+    }
+
+    50% {
+        left: 100%;
+    }
+}
+
+.card-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.card-label {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #333;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.card-value {
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: #e63946;
+    margin: 8px 0;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1), 0 0 10px rgba(230, 57, 70, 0.3);
+    animation: value-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes value-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+.card-sublabel {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
+    margin: 8px 0 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@keyframes card-pop-in {
+    0% {
+        transform: scale(0.8) rotate(-8deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes card-rotate {
+
+    0%,
+    100% {
+        transform: rotateZ(-2deg);
+    }
+
+    50% {
+        transform: rotateZ(2deg);
+    }
+}
+
+.promo-title {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 215, 0, 0.5);
+    margin: 0;
+    animation: title-glow 1.8s ease-in-out infinite, title-bounce 1.5s ease-in-out infinite;
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes title-glow {
+
+    0%,
+    100% {
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 215, 0, 0.5);
+    }
+
+    50% {
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.8);
+    }
+}
+
+@keyframes title-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* CONSULT FORM */
+
+/* Nền vàng và bố cục chung */
+.consult-form-section {
+    display: flex;
+}
+
+.badge-global {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.main-title {
+    font-size: 42px;
+    font-weight: 900;
+    margin: 20px 0;
+    line-height: 1.2;
+}
+
+.main-title .highlight {
+    color: #4f46e5;
+    /* Màu xanh của bạn */
+}
+
+.sub-description {
+    font-size: 18px;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+/* Danh sách lợi ích */
+.benefit-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.benefit-icon {
+    width: 45px;
+    height: 45px;
+    background: #5bcddf;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.benefit-text h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.benefit-text p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.consult-form {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    padding: 32px 28px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(79, 70, 229, 0.15), 0 0 0 1px rgba(79, 70, 229, 0.1);
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #4f46e5, #7c3aed, #ec4899, #4f46e5) 1;
+    position: relative;
+    width: min(100%, 520px);
+    margin-left: auto;
+}
+
+.form-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #e63946;
+    text-align: center;
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #e63946 0%, #f05545 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1e2937;
+}
+
+.form-group span {
+    color: #ef4444;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #4f46e5;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: #fff;
+    border: none;
+    padding: 18px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    margin-top: 10px;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.submit-btn:active {
+    transform: translateY(-2px);
+}
+
+.form-note {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-top: 16px;
+}
+
+/* CONSULT FORM SECTION */
+.consult-form-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    padding: 100px 0;
+}
+
+.consult-form-section .container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.form-left h2 {
+    font-size: 2.8rem;
+    color: #1e2937;
+    margin-bottom: 12px;
+}
+
+.form-left p {
+    font-size: 1.4rem;
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+.highlight-box {
+    background: #fff;
+    padding: 20px 24px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+    color: #4f46e5;
+}
+
+@media (max-width: 768px) {
+    .form-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .form-left {
+        order: 2;
+    }
+
+    .highlight-box {
+        justify-content: center;
+    }
+}
+

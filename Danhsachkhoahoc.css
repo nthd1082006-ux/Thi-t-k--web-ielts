@@ -1,0 +1,173 @@
+.section {
+    padding: 100px 0;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+}
+
+.course-card {
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 32px 28px;
+    position: relative;
+    transition: all 0.4s;
+}
+
+.course-card:hover {
+    border-color: #4f46e5;
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px -12px rgb(79 70 229 / 0.15);
+}
+
+.course-card.hot {
+    border-color: #f59e0b;
+}
+
+.badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.course-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+    color: #1e2937;
+}
+
+.course-card p {
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    font-weight: 600;
+}
+
+.btn-detail {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    background: #4f46e5;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-detail:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: #f1f5f9;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #4f46e5;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+.course-card:hover .card-icon {
+    background: #4f46e5;
+    color: white;
+}
+
+.course-card.hot .card-icon {
+    color: #f59e0b;
+}
+
+.course-card.hot:hover .card-icon {
+    background: #f59e0b;
+    color: white;
+}
+
+/* --- PHẦN INTRO ICONS NÂNG CẤP --- */
+.course-intro {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 50px 0 70px 0;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.intro-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 600;
+    color: #1e293b;
+    /* Màu chữ xanh đen đậm cho sang */
+    background: #ffffff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    /* Bo góc mềm mại */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Đổ bóng nhẹ tạo độ nổi */
+    transition: all 0.3s ease;
+    /* Hiệu ứng mượt mà */
+    border: 1px solid #f1f5f9;
+    /* Viền rất nhạt */
+}
+
+/* Hiệu ứng khi di chuột qua mỗi icon */
+.intro-item:hover {
+    transform: translateY(-5px);
+    /* Bay lên nhẹ */
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.1);
+    /* Đổ bóng màu xanh nhẹ */
+    border-color: #4f46e5;
+    /* Đổi màu viền sang màu chủ đạo của bạn */
+}
+
+.intro-item i {
+    font-size: 1.8rem;
+    /* Cho icon to hơn một chút */
+    color: #4f46e5;
+    /* Màu xanh gốc của bạn */
+    background: #eef2ff;
+    /* Tạo vòng nền nhẹ phía sau icon */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 480px) {
+    .intro-item {
+        width: 100%;
+        /* Trên điện thoại nhỏ thì mỗi cái một dòng */
+        justify-content: flex-start;
+    }
+}
