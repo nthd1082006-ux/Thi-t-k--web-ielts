@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS GLOBAL - Chạm Đến Ước Mơ</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/Home.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <img src="/images/logo.png" alt="logo">
+            <div class="logo">
+                <p class="logo-text">IELTS</p> GLOBAL
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="Home.html" class="active">TRANG CHỦ</a></li>
+                <li><a href="Gioithieu.html">GIỚI THIỆU</a></li>
+                <li><a href="Hethongdaotao.html">HỆ THỐNG ĐÀO TẠO</a></li>
+                <li><a href="Danhsachkhoahoc.html">DANH SÁCH KHÓA HỌC</a></li>
+                <li><a href="Hv_Gv.html">HỌC VIÊN / GIẢNG VIÊN</a></li>
+                <li><a href="payment_history.html">LỊCH SỬ THANH TOÁN</a></li>
+            </ul>
+            <div class="auth-buttons" id="auth-buttons">
+                <a href="login_out.html" class="btn-login">Đăng nhập</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Mở menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>CÙNG <span class="highlight">GLOBAL</span> CHẠM ĐẾN ƯỚC MƠ</h1>
+            <div class="tagline">
+                <span>DREAM ON</span>
+                <span>LEARN SMART</span>
+                <span>MAKE IT REAL</span>
+            </div>
+            <p class="hero-subtitle">Học IELTS dễ dàng hơn với IELTS GLOBAL</p>
+            <a href="#" onclick="goToTest(); return false;" class="cta-button">ĐĂNG KÝ KIỂM TRA NGAY →</a>
+        </div>
+    </header>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h3 class="counter" data-target="10000">0</h3>
+                    <p>Học viên thành công</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-chalkboard-teacher"></i>
+                    <h3 class="counter" data-target="50">0</h3>
+                    <p>Giảng viên 8.5+ IELTS</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-building"></i>
+                    <h3 class="counter" data-target="15">0</h3>
+                    <p>Trung tâm toàn quốc</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-trophy"></i>
+                    <h3 class="counter" data-target="98">0</h3>
+                    <p>Học viên đạt mục tiêu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHƯƠNG TRÌNH ĐÀO TẠO -->
+    <section class="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>CHƯƠNG TRÌNH ĐÀO TẠO</h2>
+                <p>Khóa Học Tại IELTS Global</p>
+                <span class="highlight-text">Lộ trình tinh gọn, cam kết đầu ra bằng văn bản</span>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card hot" onclick="goToCourse('intensive1')">
+                    <h3>IELTS Intensive (Cấp tốc)</h3>
+                    <p>Dành cho người cần bằng gấp trong 2-3 tháng.</p>
+                    <div class="course-info">
+                        <span><i class="fa-solid fa-clock"></i> 24 buổi</span>
+                        <span><i class="fa-solid fa-star"></i> 4.9 (120+)</span>
+                    </div>
+                    <a href="#" class="btn-detail" onclick="goToCourse('intensive1');return false;">Xem chi tiết →</a>
+                </div>
+                <div class="course-card" onclick="goToCourse('foundation1')">
+                    <h3>IELTS Foundation</h3>
+                    <p>Xây dựng nền tảng từ 0 đến 4.5+ vững chắc.</p>
+                    <div class="course-info">
+                        <span><i class="fa-solid fa-clock"></i> 48 buổi</span>
+                        <span><i class="fa-solid fa-star"></i> 4.8 (200+)</span>
+                    </div>
+                    <a href="#" class="btn-detail" onclick="goToCourse('foundation1');return false;">Xem chi tiết →</a>
+                </div>
+                <div class="course-card" onclick="goToCourse('master1')">
+                    <h3>IELTS Master (7.5+)</h3>
+                    <p>Luyện kỹ năng chuyên sâu để đạt band điểm cao.</p>
+                    <div class="course-info">
+                        <span><i class="fa-solid fa-clock"></i> 36 buổi</span>
+                        <span><i class="fa-solid fa-star"></i> 5.0 (85+)</span>
+                    </div>
+                    <a href="#" class="btn-detail" onclick="goToCourse('master1');return false;">Xem chi tiết →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ĐỘI NGŨ & HỌC VIÊN -->
+    <section class="team-students-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Đội ngũ giảng dạy & thành viên</h2>
+                <p>Những gương mặt chuyên môn hàng đầu, giàu kinh nghiệm và tâm huyết.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-item" data-type="teacher">
+                    <div class="band-badge">9.0</div>
+                    <img src="/images/teacher1.png" alt="Th.s. Nguyễn Văn A">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Th.s. Nguyễn Văn Anh</h4>
+                            <ul>
+                                <li>Tuổi: 34</li>
+                                <li>Band cá nhân: 9.0</li>
+                                <li>Chuyên dạy: Band 8.0-8.5</li>
+                                <li>Học tại: ĐH Ngoại ngữ Hà Nội</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Th.s. Nguyễn Văn Anh</h4>
+                    <p>Giảng viên Listening</p>
+                </div>
+                <div class="team-item" data-type="teacher">
+                    <div class="band-badge">9.0</div>
+                    <img src="/images/teacher2.jpg" alt="Th.s. Trần Thị B">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Th.s. Trần Thanh Huyền</h4>
+                            <ul>
+                                <li>Tuổi: 31</li>
+                                <li>Band cá nhân: 9.0</li>
+                                <li>Chuyên dạy: Band 7.0-7.5</li>
+                                <li>Học tại: ĐH Ngoại ngữ TP.HCM</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Th.s. Trần Thanh Huyền</h4>
+                    <p>Giảng viên Reading</p>
+                </div>
+                <div class="team-item" data-type="teacher">
+                    <div class="band-badge">9.0</div>
+                    <img src="/images/teacher3.jpg" alt="Ms. Lê Thị C">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Ms. Lê Thị Thu Hằng</h4>
+                            <ul>
+                                <li>Tuổi: 28</li>
+                                <li>Band cá nhân: 9.0</li>
+                                <li>Chuyên dạy: Speaking 7.5+</li>
+                                <li>Học tại: ĐH KHXH & NV</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Ms. Lê Thị Thu Hằng</h4>
+                    <p>Giảng viên Speaking</p>
+                </div>
+                <div class="team-item" data-type="teacher">
+                    <div class="band-badge">9.0</div>
+                    <img src="/images/teacher4.png" alt="Th.s. Phạm Minh D">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Th.s. Phạm Minh Dũng</h4>
+                            <ul>
+                                <li>Tuổi: 36</li>
+                                <li>Band cá nhân: 9.0</li>
+                                <li>Chuyên dạy: Writing 7.5+</li>
+                                <li>Học tại: ĐH Ngoại thương</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Th.s. Phạm Minh Dũng</h4>
+                    <p>Giảng viên Writing</p>
+                </div>
+                <div class="team-item" data-type="teacher">
+                    <div class="band-badge">9.0</div>
+                    <img src="/images/teacher5.jpg" alt="Ms. Hoàng Ngọc E">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Th.s. Hoàng Văn Tú</h4>
+                            <ul>
+                                <li>Tuổi: 29</li>
+                                <li>Band cá nhân: 9.0</li>
+                                <li>Chuyên dạy: Toàn diện</li>
+                                <li>Học tại: ĐH Sư phạm HN</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Th.s. Hoàng Văn Tú</h4>
+                    <p>Giám sát chất lượng</p>
+                </div>
+                <div class="team-item" data-type="teacher">
+                    <div class="band-badge">9.0</div>
+                    <img src="/images/teacher6.jpg" alt="Ms. Hoàng Ngọc E">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Ms. Hoàng Cẩm Nga</h4>
+                            <ul>
+                                <li>Tuổi: 29</li>
+                                <li>Band cá nhân: 9.0</li>
+                                <li>Chuyên dạy: Toàn diện</li>
+                                <li>Học tại: ĐH Sư phạm HN</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Ms. Hoàng Cẩm Nga</h4>
+                    <p>Giám sát chất lượng</p>
+                </div>
+                <div class="team-item" data-type="teacher">
+                    <div class="band-badge">9.0</div>
+                    <img src="/images/teacher7.jpg" alt="Ms. Hoàng Ngọc E">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Th.s. Doãn Văn Tài</h4>
+                            <ul>
+                                <li>Tuổi: 29</li>
+                                <li>Band cá nhân: 9.0</li>
+                                <li>Chuyên dạy: Toàn diện</li>
+                                <li>Học tại: ĐH Sư phạm HN</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Th.s. Doãn Văn Tài</h4>
+                    <p>Giám sát chất lượng</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- VIDEO SECTION -->
+    <div class="videos-section">
+        <div class="section-header">
+            <h2>Video Học Tập</h2>
+            <p>Những video giảng dạy và phương pháp học tập hiệu quả</p>
+        </div>
+        <div class="videos-grid">
+            <div class="video-card">
+                <div class="video-image">
+                    <iframe src="https://www.youtube.com/embed/ykk6Ib3eacM?rel=0&modestbranding=1"
+                        title="Kỹ Năng Reading" loading="lazy" allowfullscreen></iframe>
+                    <div class="video-badge">VIDEO</div>
+                </div>
+                <div class="video-content">
+                    <div class="video-date">28/01/2026</div>
+                    <h4>Kỹ Năng Reading Hiệu Quả</h4>
+                    <p>Phương pháp Reversed Reading giúp tối ưu thời gian và đạt điểm tuyệt đối.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-image">
+                    <iframe src="https://www.youtube.com/embed/YiIjfgvPIGQ" title="Speaking Tips" loading="lazy"
+                        allowfullscreen style="width: 100%; aspect-ratio: 16/9; border: none;">
+                    </iframe>
+                    <div class="video-badge">VIDEO</div>
+                </div>
+                <div class="video-content">
+                    <div class="video-date">28/01/2026</div>
+                    <h4>Speaking Tips & Tricks</h4>
+                    <p>Mẹo giúp bạn nói tự nhiên, trôi chảy và ghi điểm từ vựng trong phòng thi từ thầy Huy (9.0 IELTS).
+                    </p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-image">
+                    <iframe src="https://www.youtube.com/embed/tU7VNrgCJdU?rel=0&modestbranding=1"
+                        title="Listening Strategies" loading="lazy" allowfullscreen></iframe>
+                    <div class="video-badge">VIDEO</div>
+                </div>
+                <div class="video-content">
+                    <div class="video-date">28/01/2026</div>
+                    <h4>Listening Strategies</h4>
+                    <p>Kỹ thuật bắt từ khóa (Keywords) và tránh các bẫy thường gặp trong bài nghe.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Học sinh -->
+    <section class="team-students-section">
+        <div class="container">
+            <div class="section-header" style="margin-top:80px;">
+                <h2>Học sinh tiêu biểu</h2>
+                <p>Các bạn học viên xuất sắc đạt thành tích cao và được tuyên dương.</p>
+            </div>
+            <div class="student-grid">
+                <div class="student-card" data-type="student">
+                    <div class="band-badge">8.5</div>
+                    <img src="/images/student2.jpg" alt="Nguyễn Thị Lan">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Nguyễn Thị Lan</h4>
+                            <ul>
+                                <li>Tuổi: 19</li>
+                                <li>Band đạt được: 8.5</li>
+                                <li>Lớp: IELTS Global khóa 6</li>
+                                <li>Thành tích: Học viên xuất sắc</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Nguyễn Thị Lan</h4>
+                    <p>Band 8.5 – Học viên xuất sắc</p>
+                </div>
+                <div class="student-card" data-type="student">
+                    <div class="band-badge">8.5</div>
+                    <img src="/images/student6.jpg" alt="Nguyễn Thị Lan">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Phạm Văn Dũng</h4>
+                            <ul>
+                                <li>Tuổi: 17</li>
+                                <li>Band đạt được: 8.5</li>
+                                <li>Lớp: IELTS Global khóa 6</li>
+                                <li>Thành tích: Học viên xuất sắc</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Phạm Văn Dũng</h4>
+                    <p>Band 8.5 – Học viên xuất sắc</p>
+                </div>
+                <div class="student-card" data-type="student">
+                    <div class="band-badge">8.5</div>
+                    <img src="/images/student7.jpg" alt="Nguyễn Thị Lan">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Nguyễn Thị Ý</h4>
+                            <ul>
+                                <li>Tuổi: 20</li>
+                                <li>Band đạt được: 8.5</li>
+                                <li>Lớp: IELTS Global khóa 7</li>
+                                <li>Thành tích: Học viên xuất sắc</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Nguyễn Thị ý</h4>
+                    <p>Band 8.5 – Học viên xuất sắc</p>
+                </div>
+                <div class="student-card" data-type="student">
+                    <div class="band-badge">8.5</div>
+                    <img src="/images/student1.jpg" alt="Nguyễn Thị Lan">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Nguyễn Thị Lan Anh</h4>
+                            <ul>
+                                <li>Tuổi: 19</li>
+                                <li>Band đạt được: 8.5</li>
+                                <li>Lớp: IELTS Global khóa 6</li>
+                                <li>Thành tích: Học viên xuất sắc</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Nguyễn Thị Lan Anh</h4>
+                    <p>Band 8.5 – Học viên xuất sắc</p>
+                </div>
+                <div class="student-card" data-type="student">
+                    <div class="band-badge">8.5</div>
+                    <img src="/images/student5.jpg" alt="Phạm Văn An">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Phạm Văn An</h4>
+                            <ul>
+                                <li>Tuổi: 21</li>
+                                <li>Band đạt được: 7.5</li>
+                                <li>Lớp: IELTS Global khóa 4</li>
+                                <li>Thành tích: Tuyên dương năng động</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Phạm Văn An</h4>
+                    <p>Band 8.5 – Tuyên dương</p>
+                </div>
+                <div class="student-card" data-type="student">
+                    <div class="band-badge">8.5</div>
+                    <img src="/images/student3.jpg" alt="Trần Như Quỳnh">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Trần Như Quỳnh</h4>
+                            <ul>
+                                <li>Tuổi: 18</li>
+                                <li>Band đạt được: 8.5</li>
+                                <li>Lớp: IELTS Global khóa 8</li>
+                                <li>Thành tích: Thành tích cao</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Trần Như Quỳnh</h4>
+                    <p>Band 8.5 – Thành tích cao</p>
+                </div>
+                <div class="student-card" data-type="student">
+                    <div class="band-badge">8.5</div>
+                    <img src="/images/student4.jpg" alt="Vũ Minh Khang">
+                    <div class="info-overlay">
+                        <div class="info-overlay-inner">
+                            <h4>Vũ Minh Khang</h4>
+                            <ul>
+                                <li>Tuổi: 20</li>
+                                <li>Band đạt được: 8.5</li>
+                                <li>Lớp: IELTS Global khóa 5</li>
+                                <li>Thành tích: Nỗ lực vượt bậc</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Vũ Minh Khang</h4>
+                    <p>Band 8.5 – Nỗ lực vượt bậc</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Những tổ chức hợp tác</h2>
+                <p>Được tin tưởng bởi các tổ chức giáo dục hàng đầu tại Việt Nam và thế giới</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-logo-item"><img src="/images/Neu.jpg" alt="NEU Logo"></div>
+                <div class="partner-logo-item"><img src="/images/IDP.png" alt="IDP Logo"></div>
+                <div class="partner-logo-item"><img src="/images/Cambridge.png" alt="Cambridge Logo"></div>
+                <div class="partner-logo-item"><img src="/images/tesol60.png" alt="TESOL Logo"></div>
+                <div class="partner-logo-item"><img src="/images/EL UK.png" alt="English UK Logo"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TƯ VẤN -->
+
+    <section class="consult-form-section">
+        <div class="container consult-wrapper">
+            <div class="consult-content">
+                <span class="badge-global">GLOBAL REGISTRATION</span>
+                <h2 class="main-title">BẮT ĐẦU HÀNH TRÌNH <br> <span class="highlight">CHINH PHỤC IELTS</span></h2>
+                <p class="sub-description">
+                    Đừng để rào cản ngôn ngữ cản bước thành công của bạn.
+                    Đăng ký ngay để nhận lộ trình cá nhân hóa từ chuyên gia.
+                </p>
+
+                <div class="benefit-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fa-solid fa-user-check"></i></div>
+                        <div class="benefit-text">
+                            <h4>CAM KẾT ĐẦU RA</h4>
+                            <p>Học lại miễn phí nếu không đạt target bằng văn bản.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fa-solid fa-medal"></i></div>
+                        <div class="benefit-text">
+                            <h4>GIẢNG VIÊN 8.0+</h4>
+                            <p>100% Mentor có chứng chỉ IELTS quốc tế và nghiệp vụ sư phạm.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fa-solid fa-handshake"></i></div>
+                        <div class="benefit-text">
+                            <h4>TRỞ THÀNH MENTOR</h4>
+                            <p>Gia nhập đội ngũ giảng viên chuyên nghiệp với chế độ đãi ngộ hấp dẫn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <form id="consultForm" class="consult-form">
+                <h3 class="form-title">Điền form tư vấn nhận ngay ưu đãi</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Họ và tên <span>*</span></label>
+                        <input type="text" id="fullName" placeholder="Nguyễn Văn A" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại <span>*</span></label>
+                        <input type="tel" id="phone" placeholder="09xxxxxxxx" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="example@gmail.com">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Band hiện tại</label>
+                        <select id="currentBand">
+                            <option value="">Chưa biết</option>
+                            <option value="0-3.0">0 – 3.0</option>
+                            <option value="3.5-4.5">3.5 – 4.5</option>
+                            <option value="5.0-6.0">5.0 – 6.0</option>
+                            <option value="6.5+">6.5 trở lên</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Band mục tiêu</label>
+                        <select id="targetBand">
+                            <option value="">Chọn band</option>
+                            <option value="5.0-5.5">5.0 – 5.5</option>
+                            <option value="6.0-6.5">6.0 – 6.5</option>
+                            <option value="7.0-7.5">7.0 – 7.5</option>
+                            <option value="8.0+">8.0 trở lên</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Khóa học quan tâm</label>
+                    <select id="course" required>
+                        <option value="">Chọn khóa học...</option>
+                        <option value="Intensive">IELTS Intensive (Cấp tốc)</option>
+                        <option value="Foundation">IELTS Foundation</option>
+                        <option value="Master">IELTS Master (7.5+)</option>
+                        <option value="Online">IELTS Online</option>
+                        <option value="Speaking">IELTS Speaking Master</option>
+                        <option value="Writing">IELTS Writing Expert</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tin nhắn / Yêu cầu thêm</label>
+                    <textarea id="message" rows="3" placeholder="Ví dụ: Tôi cần học gấp trong 2 tháng..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fa-solid fa-paper-plane"></i> GỬI THÔNG TIN NGAY
+                </button>
+                <p class="form-note">Chúng tôi cam kết bảo mật thông tin của bạn</p>
+            </form>
+        </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo"><span class="logo-text">IELTS</span> GLOBAL</div>
+                    <p>Học IELTS dễ dàng hơn. Lộ trình tinh gọn – Cam kết đầu ra bằng văn bản.</p>
+                    <p><strong>15 trung tâm toàn quốc · Hơn 10.000 học viên thành công</strong></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Khám phá</h4>
+                    <ul>
+                        <li><a href="Home.html">Trang chủ</a></li>
+                        <li><a href="Gioithieu.html">Giới thiệu</a></li>
+                        <li><a href="Hethongdaotao.html">Hệ thống đào tạo</a></li>
+                        <li><a href="Danhsachkhoahoc.html">Danh sách khóa học</a></li>
+                        <li><a href="Hv_Gv.html">Học viên & Giảng viên</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Khóa học nổi bật</h4>
+                    <ul>
+                        <li><a href="#" onclick="goToCourse('intensive');return false;">IELTS Intensive (Cấp tốc)</a>
+                        </li>
+                        <li><a href="#" onclick="goToCourse('foundation');return false;">IELTS Foundation</a></li>
+                        <li><a href="#" onclick="goToCourse('master');return false;">IELTS Master 7.5+</a></li>
+                        <li><a href="#" onclick="goToCourse('online');return false;">IELTS Online</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên hệ</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> 207 Giải Phóng, Hai Bà Trưng, Hà Nội.</p>
+                    <p><i class="fa-solid fa-phone"></i> Hotline: <strong>1900 636 636</strong></p>
+                    <p><i class="fa-solid fa-envelope"></i> <strong>info@ieltsglobal.edu.vn</strong></p>
+                    <p><i class="fa-solid fa-clock"></i> 8:00 – 21:00 (Thứ 2 – Chủ Nhật)</p>
+                    <div class="social-icons">
+                        <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="thong-tin-doanh-nghiep">
+                    <p>GIẤY CHỨNG NHẬN DOANH NGHIỆP SỐ: 0109740210</p>
+                    <p>NGÀY CẤP GIẤY PHÉP: 01/09/2021 | NƠI CẤP: SKHĐT TP.HN</p>
+                </div>
+                <div class="danh-sach-chinh-sach">
+                    <div class="nhom-lien-ket">
+                        <a href="#">CHÍNH SÁCH BẢO MẬT</a>
+                        <a href="#">ĐIỀU KHOẢN SỬ DỤNG</a>
+                        <a href="#">CHÍNH SÁCH THANH TOÁN</a>
+                        <a href="#">CHÍNH SÁCH BẢO HÀNH</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/Home.js"></script>
+</body>
+
+</html>

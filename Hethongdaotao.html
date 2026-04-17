@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Đào Tạo - IELTS GLOBAL</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/Hethongdaotao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <img src="/images/logo.png" alt="logo">
+            <div class="logo">
+                <p class="logo-text">IELTS</p> GLOBAL
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="Home.html">TRANG CHỦ</a></li>
+                <li><a href="Gioithieu.html">GIỚI THIỆU</a></li>
+                <li><a href="Hethongdaotao.html" class="active">HỆ THỐNG ĐÀO TẠO</a></li>
+                <li><a href="Danhsachkhoahoc.html">DANH SÁCH KHÓA HỌC</a></li>
+                <li><a href="Hv_Gv.html">HỌC VIÊN / GIẢNG VIÊN</a></li>
+                <li><a href="payment_history.html" >LỊCH SỬ THANH TOÁN</a></li>
+            </ul>
+            <div class="auth-buttons" id="auth-buttons">
+                <a href="login_out.html" class="btn-login">Đăng nhập</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Mở menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <div class="container">
+            <h1>HỆ THỐNG ĐÀO TẠO</h1>
+            <p>Lộ trình tinh gọn • Phương pháp Smart Learning • Cam kết đầu ra bằng văn bản</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+
+            <div class="section-header" style="margin-top:70px;">
+                <h2>LỘ TRÌNH KHÓA HỌC</h2>
+                <p>Nhấn vào khóa học để xem lộ trình chi tiết</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card hot" onclick="goToCourse('intensive1')">
+                    <h3>IELTS Intensive (Cấp tốc)</h3>
+                    <p>2-3 tháng · Cần bằng gấp</p>
+                    <a href="#" class="btn-detail" onclick="goToCourse('intensive1');return false;">Xem lộ trình →</a>
+                </div>
+                <div class="course-card" onclick="goToCourse('foundation1')">
+                    <h3>IELTS Foundation</h3>
+                    <p>Từ 0 → 4.5+</p>
+                    <a href="#" class="btn-detail" onclick="goToCourse('foundation1');return false;">Xem lộ trình →</a>
+                </div>
+                <div class="course-card" onclick="goToCourse('master1')">
+                    <h3>IELTS Master 7.5+</h3>
+                    <p>Luyện sâu kỹ năng</p>
+                    <a href="#" class="btn-detail" onclick="goToCourse('master1');return false;">Xem lộ trình →</a>
+                </div>
+                <div class="course-card" onclick="goToCourse('online1')">
+                    <h3>IELTS Online</h3>
+                    <p>Học linh hoạt tại nhà</p>
+                    <a href="#" class="btn-detail" onclick="goToCourse('online1');return false;">Xem lộ trình →</a>
+                </div>
+                <div class="course-card" onclick="goToCourse('speaking1')">
+                    <h3>IELTS Speaking Master</h3>
+                    <p>Trọng tâm Speaking</p>
+                    <a href="#" class="btn-detail" onclick="goToCourse('speaking1');return false;">Xem lộ trình →</a>
+                </div>
+                <div class="course-card" onclick="goToCourse('writing1')">
+                    <h3>IELTS Writing Expert</h3>
+                    <p>Trọng tâm Writing</p>
+                    <a href="#" class="btn-detail" onclick="goToCourse('writing1');return false;">Xem lộ trình →</a>
+                </div>
+            </div>
+
+            <div class="band-roadmap">
+                <h3 class="roadmap-title">LỘ TRÌNH HỌC IELTS THEO TỪNG BAND SCORE</h3>
+                <p class="roadmap-subtitle">Phương pháp học tập trung, khoa học – Tiến bộ rõ rệt theo từng cấp độ</p>
+
+                <div class="roadmap-timeline">
+
+                    <!-- 01. Foundation -->
+                    <div class="roadmap-item item-1">
+                        <div class="roadmap-icon-box">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+                        <div class="roadmap-content">
+                            <h4>Foundation</h4>
+                            <h5>0 → 4.5+</h5>
+                            <p>Xây dựng nền tảng vững chắc cho 4 kỹ năng IELTS.</p>
+                            <ul>
+                                <li><strong>48 buổi</strong> (3 tháng)</li>
+                                <li>300+ audio Listening cơ bản</li>
+                                <li>Skimming & Scanning Reading</li>
+                                <li>Writing Task 1 (Graphs)</li>
+                                <li>Speaking Part 1–2</li>
+                                <li>1.500 từ vựng thông dụng</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 02. Intensive -->
+                    <div class="roadmap-item item-2">
+                        <div class="roadmap-icon-box">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <div class="roadmap-content">
+                            <h4>Intensive</h4>
+                            <h5>4.5 → 6.0</h5>
+                            <p>Chương trình cấp tốc giúp chuyển tiếp nhanh sang mức trung cấp.</p>
+                            <ul>
+                                <li><strong>24 buổi</strong> (2 tháng)</li>
+                                <li>Câu phức & Synonyms 500+</li>
+                                <li>Writing Task 2 (Opinion)</li>
+                                <li>Speaking Fluency</li>
+                                <li>Mock Test hàng tuần</li>
+                                <li>Feedback cá nhân hóa</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 03. Master -->
+                    <div class="roadmap-item item-3">
+                        <div class="roadmap-icon-box">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <div class="roadmap-content">
+                            <h4>Master</h4>
+                            <h5>6.0 → 7.5+</h5>
+                            <p>Nâng cao kỹ năng học thuật và chiến lược thi chuyên sâu.</p>
+                            <ul>
+                                <li><strong>36 buổi</strong> (3.5 tháng)</li>
+                                <li>Coherence & Lexical Resource cao cấp</li>
+                                <li>Speaking Part 3 (Abstract)</li>
+                                <li>Reading nâng cao (Inference)</li>
+                                <li>20+ Full Tests</li>
+                                <li>1:1 Coaching</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 04. Expert -->
+                    <div class="roadmap-item item-4">
+                        <div class="roadmap-icon-box">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="roadmap-content">
+                            <h4>Expert</h4>
+                            <h5>7.5 → 8.5+</h5>
+                            <p>Chương trình Elite dành cho mục tiêu cao nhất (du học, học bổng).</p>
+                            <ul>
+                                <li><strong>30 buổi</strong> (3 tháng)</li>
+                                <li>Native-like fluency & Sophisticated vocabulary</li>
+                                <li>Complex arguments & Critical thinking</li>
+                                <li>Premium Cambridge materials</li>
+                                <li>Alumni NEU Mentorship</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="success-stats"
+                style="background:linear-gradient(135deg,#4f46e5,#7c3aed);color:white;padding:70px 0;margin:80px 0;border-radius:24px;">
+                <div style="max-width:1000px;margin:0 auto;padding:0 30px;">
+                    <div
+                        style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px;text-align:center;">
+                        <div>
+                            <h3 class="stat-number" data-target="10000" style="font-size:2.8rem;font-weight:800;">9000+
+                            </h3>
+                            <p>Học viên thành công</p>
+                        </div>
+                        <div>
+                            <h3 class="stat-number" data-target="85" style="font-size:2.8rem;font-weight:800;">>90%</h3>
+                            <p>Tỷ lệ 7.0+ </p>
+                        </div>
+                        <div>
+                            <h3 class="stat-number" data-target="15" style="font-size:2.8rem;font-weight:800;">15</h3>
+                            <p>Trung tâm toàn quốc</p>
+                        </div>
+                        <div>
+                            <h3 class="stat-number" data-target="98" style="font-size:2.8rem;font-weight:800;">100%</h3>
+                            <p>Cam kết đầu ra </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Features -->
+    <div style="padding:80px 20px;max-width:1280px;margin:0 auto;">
+        <h3 style="text-align:center;color:#2c5aa0;font-size:2rem;margin-bottom:50px;">Hệ thống thông minh hỗ trợ tối đa
+        </h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;">
+            <div class="feature-card"
+                style="background:#fff;padding:36px;border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,0.07);text-align:center;border:1px solid #f0f0ff;">
+                <i class="fa-solid fa-gamepad" style="font-size:3.5rem;color:#ff6b6b;margin-bottom:20px;"></i>
+                <h4 style="font-size:1.2rem;margin-bottom:12px;color:#1e2937;">Game Show hàng tuần</h4>
+                <p style="color:#64748b;line-height:1.7;">Quiz IELTS vui nhộn, ranking top học viên, phần thưởng hấp
+                    dẫn. Tăng 30% engagement!</p>
+            </div>
+            <div class="feature-card"
+                style="background:#fff;padding:36px;border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,0.07);text-align:center;border:1px solid #f0f0ff;">
+                <i class="fa-solid fa-chart-line" style="font-size:3.5rem;color:#4ecdc4;margin-bottom:20px;"></i>
+                <h4 style="font-size:1.2rem;margin-bottom:12px;color:#1e2937;">Phân tích dữ liệu AI</h4>
+                <p style="color:#64748b;line-height:1.7;">Dashboard cá nhân hóa: Progress tracking, weak points, dự đoán
+                    band score chính xác 90%.</p>
+            </div>
+            <div class="feature-card"
+                style="background:#fff;padding:36px;border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,0.07);text-align:center;border:1px solid #f0f0ff;">
+                <i class="fa-solid fa-list-check" style="font-size:3.5rem;color:#45b7d1;margin-bottom:20px;"></i>
+                <h4 style="font-size:1.2rem;margin-bottom:12px;color:#1e2937;">3 giai đoạn học rõ ràng</h4>
+                <p style="color:#64748b;line-height:1.7;">Foundation → Intensive → Master | Milestone tests mỗi phase |
+                    Chứng chỉ từng giai đoạn.</p>
+            </div>
+            <div class="feature-card"
+                style="background:#fff;padding:36px;border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,0.07);text-align:center;border:1px solid #f0f0ff;">
+                <i class="fa-solid fa-clipboard-check" style="font-size:3.5rem;color:#96ceb4;margin-bottom:20px;"></i>
+                <h4 style="font-size:1.2rem;margin-bottom:12px;color:#1e2937;">Kiểm tra định kỳ</h4>
+                <p style="color:#64748b;line-height:1.7;">Weekly mock tests Cambridge | Monthly progress report | Exam
+                    simulation thực tế 100%.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">TESTIMONIALS</span>
+                <h2 class="section-title">Thành công thực tế từ <span>Học viên</span></h2>
+                <p class="section-subtitle">Hàng ngàn học viên đã đạt mục tiêu IELTS nhờ lộ trình cá nhân hóa tại Global
+                    IELTS.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-mark">“</div>
+                    <p class="content">Từ 4.0 lên 7.5 chỉ 4 tháng nhờ AI analytics + game show! Lộ trình cực kỳ rõ ràng
+                        và không gây áp lực.</p>
+                    <div class="user-info">
+                        <div class="avatar">
+                            <img src="https://i.pravatar.cc/150?u=a" alt="User A">
+                        </div>
+                        <div class="details">
+                            <h4 class="name">Nguyễn Văn A</h4>
+                            <span class="meta">Sinh viên NEU K59</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card featured">
+                    <div class="quote-mark">“</div>
+                    <p class="content">Kiểm tra hàng tuần giúp tôi fix lỗi ngay, cam kết đầu ra thật sự! Mentor hỗ trợ
+                        tận tâm 24/7.</p>
+                    <div class="user-info">
+                        <div class="avatar">
+                            <img src="https://i.pravatar.cc/150?u=b" alt="User B">
+                        </div>
+                        <div class="details">
+                            <h4 class="name">Trần Thị B</h4>
+                            <span class="meta">Du học sinh Úc</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-mark">“</div>
+                    <p class="content">3 giai đoạn rõ ràng, roadmap minh bạch – 8.0 học bổng full! Cảm ơn trung tâm rất
+                        nhiều.</p>
+                    <div class="user-info">
+                        <div class="avatar">
+                            <img src="https://i.pravatar.cc/150?u=c" alt="User C">
+                        </div>
+                        <div class="details">
+                            <h4 class="name">Lê Hoàng Nam</h4>
+                            <span class="meta">NEU Alumni</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo"><span class="logo-text">IELTS</span> GLOBAL</div>
+                    <p>Học IELTS dễ dàng hơn. Lộ trình tinh gọn – Cam kết đầu ra bằng văn bản.</p>
+                    <p><strong>15 trung tâm toàn quốc · Hơn 10.000 học viên thành công</strong></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Khám phá</h4>
+                    <ul>
+                        <li><a href="Home.html">Trang chủ</a></li>
+                        <li><a href="Gioithieu.html">Giới thiệu</a></li>
+                        <li><a href="Hethongdaotao.html">Hệ thống đào tạo</a></li>
+                        <li><a href="Danhsachkhoahoc.html">Danh sách khóa học</a></li>
+                        <li><a href="Hv_Gv.html">Học viên & Giảng viên</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Khóa học nổi bật</h4>
+                    <ul>
+                        <li><a href="#" onclick="goToCourse('intensive');return false;">IELTS Intensive</a></li>
+                        <li><a href="#" onclick="goToCourse('foundation');return false;">IELTS Foundation</a></li>
+                        <li><a href="#" onclick="goToCourse('master');return false;">IELTS Master 7.5+</a></li>
+                        <li><a href="#" onclick="goToCourse('online');return false;">IELTS Online</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên hệ</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> 207 Giải Phóng, Hai Bà Trưng, Hà Nội.</p>
+                    <p><i class="fa-solid fa-phone"></i> Hotline: <strong>1900 636 636</strong></p>
+                    <p><i class="fa-solid fa-envelope"></i> <strong>info@ieltsglobal.edu.vn</strong></p>
+                    <p><i class="fa-solid fa-clock"></i> 8:00 – 21:00 (Thứ 2 – Chủ Nhật)</p>
+                    <div class="social-icons">
+                        <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="thong-tin-doanh-nghiep">
+                    <p>GIẤY CHỨNG NHẬN DOANH NGHIỆP SỐ: 0109740210</p>
+                    <p>NGÀY CẤP GIẤY PHÉP: 01/09/2021 | NƠI CẤP: SKHĐT TP.HN</p>
+                </div>
+                <div class="danh-sach-chinh-sach">
+                    <div class="nhom-lien-ket">
+                        <a href="#">CHÍNH SÁCH BẢO MẬT</a>
+                        <a href="#">ĐIỀU KHOẢN SỬ DỤNG</a>
+                        <a href="#">CHÍNH SÁCH THANH TOÁN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/Home.js"></script>
+</body>
+
+</html>

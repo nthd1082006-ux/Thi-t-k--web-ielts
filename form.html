@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS GLOBAL - Chạm Đến Ước Mơ</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/Home.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <section class="consult-form-section">
+        <div class="container">
+            <form id="consultForm" class="consult-form">
+                <a href="Home.html" class="back-link">
+                    <i class="fa-solid fa-arrow-left"></i> Quay lại
+                </a>
+
+                <h3 class="form-title">Điền form tư vấn nhận ngay ưu đãi</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Họ và tên <span>*</span></label>
+                        <input type="text" id="fullName" placeholder="Nguyễn Văn A" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại <span>*</span></label>
+                        <input type="tel" id="phone" placeholder="09xxxxxxxx" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="example@gmail.com">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Band hiện tại</label>
+                        <select id="currentBand">
+                            <option value="">Chưa biết</option>
+                            <option value="0-3.0">0 - 3.0</option>
+                            <option value="3.5-4.5">3.5 - 4.5</option>
+                            <option value="5.0-6.0">5.0 - 6.0</option>
+                            <option value="6.5+">6.5 trở lên</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Band mục tiêu</label>
+                        <select id="targetBand">
+                            <option value="">Chọn band</option>
+                            <option value="5.0-5.5">5.0 - 5.5</option>
+                            <option value="6.0-6.5">6.0 - 6.5</option>
+                            <option value="7.0-7.5">7.0 - 7.5</option>
+                            <option value="8.0+">8.0 trở lên</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Khóa học quan tâm</label>
+                    <select id="course" required>
+                        <option value="">Chọn khóa học...</option>
+                        <option value="Intensive">IELTS Intensive (Cấp tốc)</option>
+                        <option value="Foundation">IELTS Foundation</option>
+                        <option value="Master">IELTS Master (7.5+)</option>
+                        <option value="Online">IELTS Online</option>
+                        <option value="Speaking">IELTS Speaking Master</option>
+                        <option value="Writing">IELTS Writing Expert</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Tin nhắn / Yêu cầu thêm</label>
+                    <textarea id="message" rows="3" placeholder="Ví dụ: Tôi cần học gấp trong 2 tháng..."></textarea>
+                </div>
+
+
+                <button href="form.html" type="submit" class="submit-btn">
+                    <i class="fa-solid fa-clipboard-check"></i> GỬI THÔNG TIN NGAY
+                </button>
+                <p class="form-note">Chúng tôi cam kết bảo mật thông tin của bạn</p>
+            </form>
+        </div>
+    </section>
+    <script>
+        document.getElementById('consultForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Ngăn trang web load lại
+
+            // Bước này bạn có thể thêm code để thu thập dữ liệu input nếu cần
+            const name = document.getElementById('fullName').value;
+            console.log("Đang xử lý đăng ký cho:", name);
+
+            // Hiển thị thông báo nhẹ hoặc chuyển trang ngay lập tức
+            alert("Thông tin của bạn đã được ghi nhận");
+
+            // Chuyển hướng sang file test.html
+            window.location.href = "Home.html";
+        });
+    </script>
+</body>
+
+</html>
