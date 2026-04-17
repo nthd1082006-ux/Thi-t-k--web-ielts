@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng ký - IELTS System</title>
+
+  <link rel="stylesheet" href="/css/login_out.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script src="/js/login_out.js"></script>
+
+  <style>
+
+  </style>
+
+  <link rel="stylesheet" href="login_out.css">
+  <script src="login_out.js"></script>
+
+</head>
+
+<body>
+  <div class="center">
+    <div class="login-container">
+      
+      <div class="login-image-wrapper">
+        <img src="/images/logofull.png" alt="Register Illustration" class="login-side-image">
+      </div>
+
+      <div class="login-box register-box">
+        <a href="login_out.html" class="back-link">
+          <i class="fa-solid fa-arrow-left"></i> Quay lại
+        </a>
+        
+        <h2>Đăng ký</h2>
+
+        <div class="input-group">
+          <input id="user" placeholder="Tên đăng nhập">
+        </div>
+        
+        <div class="input-group">
+          <input id="pass" type="password" placeholder="Mật khẩu">
+        </div>
+        
+        <div class="input-group">
+          <input id="repass" type="password" placeholder="Nhập lại mật khẩu">
+        </div>
+
+        <button onclick="register()">Đăng ký tài khoản</button>
+
+        <div class="link" onclick="goLogin()">
+          Đã có tài khoản? <strong>Đăng nhập ngay</strong>
+        </div>
+
+        <div id="msg" class="error"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</body>
+</html>

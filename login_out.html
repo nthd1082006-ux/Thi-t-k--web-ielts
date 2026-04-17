@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng nhập - IELTS System</title>
+
+
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+  </style>
+
+  <link rel="stylesheet" href="/css/login_out.css">
+  <script src="/js/Home.js"></script>
+  <script src="/js/login_out.js"></script>
+
+</head>
+
+<body>
+
+  <div class="center">
+    <div class="login-container">
+
+      <div class="login-image-wrapper">
+        <img src="/images/logofull.png" alt="Login Illustration" class="login-side-image">
+      </div>
+
+      <div class="box login-box">
+        <a href="Home.html" class="back-link">
+          <i class="fa-solid fa-arrow-left"></i> Quay lại
+        </a>
+        <h2>Đăng nhập</h2>
+
+        <input id="user" placeholder="Tên đăng nhập">
+        <input id="pass" type="password" placeholder="Mật khẩu">
+
+        <button onclick="login()">Đăng nhập</button>
+
+        <div class="link" onclick="goRegister()">
+          Chưa có tài khoản? Đăng ký
+        </div>
+
+        <div id="msg" class="error"></div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Add common.css and font-awesome for footer styles -->
+
+
+</body>
+
+</html>

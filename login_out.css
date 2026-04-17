@@ -1,0 +1,314 @@
+/* 1. Reset và phông chữ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* 2. Căn giữa toàn bộ trang */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  /* Nền xám rất nhạt */
+  padding: 20px;
+}
+
+/* 3. Container chính (Khung chứa ảnh và form) */
+.login-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  /* Để ảnh bo góc theo container */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. Cột bên trái (Chứa ảnh) */
+.login-image-wrapper {
+  flex: 1.2;
+  background-color: #a39eeb;
+  /* Nền hồng nhạt giống mẫu bạn gửi */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.login-side-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 5. Cột bên phải (Chứa Form) */
+.login-box {
+  flex: 1;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 6. Thành phần bên trong form */
+.back-link {
+  text-decoration: none;
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: block;
+  transition: 0.3s;
+}
+
+.back-link:hover {
+  color: #792ce4;
+}
+
+.login-box h2 {
+  font-size: 28px;
+  color: #1e293b;
+  margin-bottom: 30px;
+  font-weight: 800;
+}
+
+/* Input theo phong cách phẳng, viền xám mỏng */
+input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #792ce4;
+  /* Viền đỏ khi nhấn vào */
+}
+
+/* Nút bấm đỏ phẳng */
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #792ce4;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #9865eb;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 30, 66, 0.3);
+}
+
+/* Link đăng ký */
+.link {
+  text-align: center;
+  margin-top: 20px;
+  color: #64748b;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #ff1e42;
+  text-decoration: underline;
+}
+
+/* Thông báo lỗi */
+.error {
+  color: #ef4444;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 15px;
+  min-height: 20px;
+}
+
+/* 7. Xử lý cho di động (Responsive) */
+@media (max-width: 850px) {
+  .login-container {
+    flex-direction: column;
+    /* Chuyển thành 1 cột dọc */
+    max-width: 450px;
+  }
+
+  .login-image-wrapper {
+    padding: 30px;
+    flex: none;
+  }
+
+  .login-side-image {
+    max-height: 150px;
+  }
+
+  .login-box {
+    padding: 40px 30px;
+  }
+}
+
+/* ===== OPTION (TRẮC NGHIỆM) ===== */
+.option {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 15px;
+  margin: 8px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.option:hover {
+  transform: translateX(5px);
+}
+
+.option.selected {
+  background: #6366f1;
+}
+
+/* ===== ĐÚNG / SAI ===== */
+.correct {
+  background: #22c55e !important;
+}
+
+.wrong {
+  background: #ef4444 !important;
+}
+
+/* ===== TIMER ===== */
+.timer {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+/* ===== GRID LỊCH ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.slot {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+}
+
+.slot:hover {
+  transform: scale(1.05);
+}
+
+.slot.selected {
+  background: #22c55e;
+}
+
+/* ===== TITLE ===== */
+h1,
+h2,
+h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+
+/* FADE OUT OVERLAY */
+#fadeScreen {
+  position: fixed;
+  inset: 0;
+  background: #0f172a;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+  z-index: 9999;
+}
+
+#fadeScreen.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* FADE IN KHI LOAD */
+body {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.back-link {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #1e2937;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+  transition: color 0.3s, background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.back-link:hover {
+  color: #4f46e5;
+  background-color: rgba(79, 70, 229, 0.12);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.2);
+}
+
+.back-link i {
+  font-size: 0.8rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* LINK */
+.link {
+  margin-top: 15px;
+  cursor: pointer;
+  color: #38bdf8;
+}
+
+.error {
+  color: #ef4444;
+  margin-top: 10px;
+  min-height: 18px;
+}
