@@ -5,7 +5,7 @@ Tại trang GitHub này, nhấn vào nút Code (màu xanh).
 
 Chọn Download ZIP.
 
-Sau khi tải về, hãy giải nén file vào một thư mục trên máy tính, iải nén file images.zip ra ngoài folder dự án, sau đó chuyển folder images vừa giải nén vào lại trong folder dự án.
+Sau khi tải về, hãy giải nén file vào một thư mục trên máy tính, giải nén file images.zip ra ngoài folder dự án, sau đó chuyển folder images vừa giải nén vào lại trong folder dự án.
 
 Bước 2: Mở dự án bằng Visual Studio Code
 Mở phần mềm VS Code.
