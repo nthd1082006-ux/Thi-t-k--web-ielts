@@ -12,7 +12,7 @@ Mở phần mềm VS Code.
 
 Chọn File > Open Folder... (hoặc nhấn Ctrl + K Ctrl + O).
 
-Tìm đến thư mục bạn vừa giải nén và nhấn Select Folder.
+Tìm đến thư mục bạn vừa giải nén và nhấn Select Folder (giải nén thêm file images.zip).
 
 Bước 3: Cài đặt Extension hỗ trợ (Quan trọng)
 Để đảm bảo các liên kết CSS và Javascript hoạt động chính xác nhất, bạn nên sử dụng Live Server:
